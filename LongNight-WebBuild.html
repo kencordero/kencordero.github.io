@@ -3,8 +3,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Unity Web Player | LongNight</title>
-		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
-		<script type="text/javascript">
+		<script src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
+		<script>
 		<!--
 		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
 		if (document.location.protocol == 'https:')
@@ -12,18 +12,16 @@
 		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
 		-->
 		</script>
-		<script type="text/javascript">
+		<script>
 		<!--
 			var config = {
 				width: 960, 
 				height: 600,
-				params: { enableDebugging:"0" }
-				
+				params: { enableDebugging:"0" }				
 			};
 			var u = new UnityObject2(config);
 
 			jQuery(function() {
-
 				var $missingScreen = jQuery("#unityPlayer").find(".missing");
 				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
 				$missingScreen.hide();
@@ -60,7 +58,7 @@
 			});
 		-->
 		</script>
-		<style type="text/css">
+		<style>
 		<!--
 		body {
 			font-family: Helvetica, Verdana, Arial, sans-serif;
@@ -116,7 +114,7 @@
 		</style>
 	</head>
 	<body>
-		<p class="header"><span>Unity Web Player | </span>LongNight</p>
+		<p class="header"><span>Unity Web Player | </span>Long Night</p>
 		<div class="content">
 			<div id="unityPlayer">
 				<div class="missing">
