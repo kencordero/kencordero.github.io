@@ -1,6 +1,15 @@
 body {
     text-align: center;   
 }
+.fa {
+    font-size: 150%;
+}
+.fa-home {
+    color: purple;
+}
+.fa-bars {
+    color: blue;
+}
 hr {
     width: 75%;
     margin: 0 auto;
@@ -21,6 +30,6 @@ hr {
     height: 315px;
     border: 0;    
 }
-p.footer {
+div.footer {
     font-size: x-small;
 }
