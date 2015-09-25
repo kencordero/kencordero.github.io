@@ -8,7 +8,19 @@ body {
     color: purple;
 }
 .fa-bars {
+    color: white;
+}
+.fa-music {
+    color: yellow;
+}
+.fa-gamepad {
+    color: green;
+}
+.fa-info {
     color: blue;
+}
+.fa-envelope {
+    color: orange;
 }
 hr {
     width: 75%;
