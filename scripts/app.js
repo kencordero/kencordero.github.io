@@ -1,5 +1,3 @@
-
-
 var app = angular.module('app', ['ngRoute']);
 
 app.config(function ($routeProvider) {
@@ -68,6 +66,7 @@ app.controller('gameController', ['$scope', function($scope) {
 	   $brokenScreen.hide();
 				
 	   u.observeProgress(function (progress) {
+           console.log(progress);
 	       switch(progress.pluginStatus) {
                case "broken":
                    $brokenScreen.find("a").click(function (e) {
