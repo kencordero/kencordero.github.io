@@ -36,7 +36,7 @@ app.controller('musicController', ['$scope', function($scope) {
     
     $("#menu-bach996-2").click(function() {
         $("#videos iframe").hide();
-        $("#bach996-2").show().animate(1);
+        $("#bach996-2").show();
     });
     $("#menu-bach999").click(function() {
         $("#videos iframe").hide();
@@ -66,8 +66,7 @@ app.controller('gameController', ['$scope', function($scope) {
 	   $brokenScreen.hide();
 				
 	   u.observeProgress(function (progress) {
-           console.log(progress);
-	       switch(progress.pluginStatus) {
+           switch(progress.pluginStatus) {
                case "broken":
                    $brokenScreen.find("a").click(function (e) {
                        e.stopPropagation();
@@ -94,7 +93,7 @@ app.controller('gameController', ['$scope', function($scope) {
                     break;
             }   
         });
-        u.initPlugin(jQuery("#unityPlayer")[0], "LongNight-WebBuild.unity3d");
+        u.initPlugin(jQuery("#unityPlayer")[0], "assets/LongNight-WebBuild.unity3d");
 	});	
 }]);
 app.controller('aboutController', ['$scope', function($scope) {
