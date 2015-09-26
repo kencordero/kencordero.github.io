@@ -27,12 +27,9 @@ hr {
     width: 75%;
     margin: 0 auto;
 }
-#repertory table {
-    margin-left:50px;
-    border:1px solid grey;
-}
-#repertory th {
+#repertory ul {
     text-align: left;
+    list-style: none;
 }
 #videos {
     width:560px;
