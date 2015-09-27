@@ -24,12 +24,12 @@ app.config(function ($routeProvider) {
 });
 
 app.controller('homeController', ['$scope', function($scope) {
-    $("li").removeClass("active");
+    $("#bs-navbar-collapse ul li").removeClass("active");
     $("#menu-home").addClass("active");
 	console.log('Home');
 }]);
 app.controller('musicController', ['$scope', function($scope) {
-	$("li").removeClass("active");
+	$("#bs-navbar-collapse ul li").removeClass("active");
     $("#menu-music").addClass("active");
     console.log('Music');
     $("#videos iframe").hide();
@@ -48,7 +48,7 @@ app.controller('musicController', ['$scope', function($scope) {
     });                                                                                                                         
 }]);
 app.controller('gameController', ['$scope', function($scope) {
-    $("li").removeClass("active");
+    $("#bs-navbar-collapse ul li").removeClass("active");
     $("#menu-game").addClass("active");
 	console.log('Game');
     
@@ -97,12 +97,12 @@ app.controller('gameController', ['$scope', function($scope) {
 	});	
 }]);
 app.controller('aboutController', ['$scope', function($scope) {
-    $("li").removeClass("active");
+    $("#bs-navbar-collapse ul li").removeClass("active");
     $("#menu-about").addClass("active");
 	console.log('About');
 }]);
 app.controller('contactController', ['$scope', function($scope) {
-    $("li").removeClass("active");
+    $("#bs-navbar-collapse ul li").removeClass("active");
     $("#menu-contact").addClass("active");
 	console.log('Contact');
 }]);
