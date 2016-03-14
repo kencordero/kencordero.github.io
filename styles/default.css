@@ -46,3 +46,18 @@ div.footer {
 #social-media {
     text-align: left;
 }
+#social-media .fa {
+    font-size: 5em;
+}
+.fa-google-plus {
+    color: red;
+}
+.fa-github {
+    color: black;
+}
+.fa-twitter {
+    color: darkturquoise;
+}
+.center {
+    text-align: center;
+}
