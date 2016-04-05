@@ -96,10 +96,13 @@ app.controller('gameController', ['$scope', function($scope) {
         u.initPlugin(jQuery("#unityPlayer")[0], "assets/LongNight-WebBuild.unity3d");
 	});	
 }]);
-app.controller('aboutController', ['$scope', function($scope) {
+app.controller('aboutController', ['$scope', '$http', function($scope, $http) {
     $("#bs-navbar-collapse ul li").removeClass("active");
     $("#menu-about").addClass("active");
 	console.log('About');
+    $http.get('https://api.github.com/users/kencordero').then(function(response) {
+        $scope.user = response.data;
+    });
 }]);
 app.controller('contactController', ['$scope', function($scope) {
     $("#bs-navbar-collapse ul li").removeClass("active");
