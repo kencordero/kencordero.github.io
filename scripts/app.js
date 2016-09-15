@@ -26,17 +26,21 @@ app.config(function ($routeProvider) {
 		controller: 'contactController'
 	})
 });
-
+app.controller('dateController', ['$scope', function($scope) {
+    $scope.currentYear = new Date().getFullYear();
+}]);
 app.controller('homeController', ['$scope', function($scope) {
     $('#bs-navbar-collapse ul li').removeClass('active');
     $('#menu-home').addClass('active');
 	console.log('Home');
 }]);
+
 app.controller('libraryController', ['$scope', function($scope) {
     $('#bs-navvar-collapse ul li').removeClass('active');
     $('#menu-library').addClass('active');
     console.log('Library');
 }]);
+
 app.controller('musicController', ['$scope', function($scope) {
 	$('#bs-navbar-collapse ul li').removeClass('active');
     $('#menu-music').addClass('active');
@@ -56,6 +60,7 @@ app.controller('musicController', ['$scope', function($scope) {
         $('#guardame').show();        
     });                                                                                                                         
 }]);
+
 app.controller('gameController', ['$scope', function($scope) {
     $('#bs-navbar-collapse ul li').removeClass('active');
     $('#menu-game').addClass('active');
@@ -105,6 +110,7 @@ app.controller('gameController', ['$scope', function($scope) {
         u.initPlugin(jQuery('#unityPlayer')[0], 'assets/LongNight-WebBuild.unity3d');
 	});	
 }]);
+
 app.controller('aboutController', ['$scope', '$http', function($scope, $http) {
     $('#bs-navbar-collapse ul li').removeClass('active');
     $('#menu-about').addClass('active');
@@ -113,6 +119,7 @@ app.controller('aboutController', ['$scope', '$http', function($scope, $http) {
         $scope.user = response.data;
     });
 }]);
+
 app.controller('contactController', ['$scope', function($scope) {
     $('#bs-navbar-collapse ul li').removeClass('active');
     $('#menu-contact').addClass('active');

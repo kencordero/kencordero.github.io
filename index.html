@@ -45,9 +45,9 @@
 </nav>
 <div class="container">
     <div ng-view></div>
-    <div class="footer navbar-fixed-bottom">
+    <div class="footer navbar-fixed-bottom" ng-controller="dateController">
         <hr />
-        © 2016 Kenneth Cordero.<br/>
+        © {{currentYear}} Kenneth Cordero.<br/>
     </div>
 </div>
 </html>
