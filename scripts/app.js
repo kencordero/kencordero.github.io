@@ -49,15 +49,15 @@ app.controller('musicController', ['$scope', function($scope) {
     
     $('#menu-bach996-2').click(function() {
         $('#videos iframe').hide();
-        $('#bach996-2').show();
+        $('#video-bach996-2').show();
     });
     $('#menu-bach999').click(function() {
         $('#videos iframe').hide();
-        $('#bach999').show();
+        $('#video-bach999').show();
     });
-    $('#menu-guardame').click(function() {
+    $('#menu-narvaez').click(function() {
         $('#videos iframe').hide();
-        $('#guardame').show();        
+        $('#video-narvaez').show();        
     });                                                                                                                         
 }]);
 
