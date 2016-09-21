@@ -31,20 +31,17 @@ app.controller('dateController', ['$scope', function($scope) {
 }]);
 app.controller('homeController', ['$scope', function($scope) {
     $('#bs-navbar-collapse ul li').removeClass('active');
-    $('#menu-home').addClass('active');
-	console.log('Home');
+    $('#menu-home').addClass('active');	
 }]);
 
 app.controller('libraryController', ['$scope', function($scope) {
     $('#bs-navvar-collapse ul li').removeClass('active');
-    $('#menu-library').addClass('active');
-    console.log('Library');
+    $('#menu-library').addClass('active');    
 }]);
 
 app.controller('musicController', ['$scope', function($scope) {
 	$('#bs-navbar-collapse ul li').removeClass('active');
-    $('#menu-music').addClass('active');
-    console.log('Music');
+    $('#menu-music').addClass('active');    
     $('#videos iframe').hide();
     
     $('#menu-bach996-2').click(function() {
@@ -64,7 +61,6 @@ app.controller('musicController', ['$scope', function($scope) {
 app.controller('gameController', ['$scope', function($scope) {
     $('#bs-navbar-collapse ul li').removeClass('active');
     $('#menu-game').addClass('active');
-	console.log('Game');
     
     var config = {
 	   width: 960, 
@@ -114,7 +110,6 @@ app.controller('gameController', ['$scope', function($scope) {
 app.controller('aboutController', ['$scope', '$http', function($scope, $http) {
     $('#bs-navbar-collapse ul li').removeClass('active');
     $('#menu-about').addClass('active');
-	console.log('About');
     $http.get('https://api.github.com/users/kencordero').then(function(response) {
         $scope.user = response.data;
     });
@@ -122,6 +117,5 @@ app.controller('aboutController', ['$scope', '$http', function($scope, $http) {
 
 app.controller('contactController', ['$scope', function($scope) {
     $('#bs-navbar-collapse ul li').removeClass('active');
-    $('#menu-contact').addClass('active');
-	console.log('Contact');
+    $('#menu-contact').addClass('active');	
 }]);
