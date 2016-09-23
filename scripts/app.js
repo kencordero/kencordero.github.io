@@ -31,17 +31,29 @@ app.controller('dateController', ['$scope', function($scope) {
 }]);
 app.controller('homeController', ['$scope', function($scope) {
     $('#bs-navbar-collapse ul li').removeClass('active');
-    $('#menu-home').addClass('active');	
+    $('#menu-home').addClass('active');
 }]);
-
 app.controller('libraryController', ['$scope', function($scope) {
     $('#bs-navvar-collapse ul li').removeClass('active');
-    $('#menu-library').addClass('active');    
+    $('#menu-library').addClass('active');
+    var db = new Dexie('library');
+    db.version(1).stores({
+        games: '++id, [title+platform], releaseYear, rating'
+    });
+    db.open().catch(function (e) {
+        alert("Opening db failed: " + e); 
+    });
+    db.games.bulkPut([
+        {title: 'Steve', platform: 'foo'},
+        {title: 'Bob', platform: 'baz'}
+    ]);
+    db.games.toArray().then(function(d) {
+        $scope.games = d;
+    });    
 }]);
-
 app.controller('musicController', ['$scope', function($scope) {
 	$('#bs-navbar-collapse ul li').removeClass('active');
-    $('#menu-music').addClass('active');    
+    $('#menu-music').addClass('active');
     $('#videos iframe').hide();
     
     $('#menu-bach996-2').click(function() {
@@ -54,7 +66,7 @@ app.controller('musicController', ['$scope', function($scope) {
     });
     $('#menu-narvaez').click(function() {
         $('#videos iframe').hide();
-        $('#video-narvaez').show();        
+        $('#video-narvaez').show();
     });                                                                                                                         
 }]);
 
