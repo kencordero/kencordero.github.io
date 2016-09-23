@@ -5,26 +5,26 @@ body {
 .fa {
     font-size: 150%;
 }
-.fa-home {
-    color: purple;
-}
 .fa-bars {
     color: white;
 }
+.fa-home {
+    color: purple;
+}
 .fa-book {
-    color: red;
-}
-.fa-music {
-    color: yellow;
-}
-.fa-gamepad {
-    color: green;
-}
-.fa-info {
     color: blue;
 }
-.fa-envelope {
+.fa-music {
+    color: green;
+}
+.fa-gamepad {
+    color: yellow;
+}
+.fa-info {
     color: orange;
+}
+.fa-envelope {
+    color: red;
 }
 hr {
     width: 75%;
