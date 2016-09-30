@@ -36,20 +36,42 @@ app.controller('homeController', ['$scope', function($scope) {
 app.controller('libraryController', ['$scope', function($scope) {
     $('#bs-navvar-collapse ul li').removeClass('active');
     $('#menu-library').addClass('active');
-    var db = new Dexie('library');
-    db.version(1).stores({
-        games: '++id, [title+platform], releaseYear, rating'
-    });
-    db.open().catch(function (e) {
-        alert("Opening db failed: " + e); 
-    });
-    db.games.bulkPut([
-        {title: 'Steve', platform: 'foo'},
-        {title: 'Bob', platform: 'baz'}
-    ]);
-    db.games.toArray().then(function(d) {
-        $scope.games = d;
-    });    
+    
+    // for reference: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB
+    var gameData = [
+        { title: 'Metroid Prime', platform: 'Wii' },
+        { title: 'Elder Scrolls III: Morrowind', platform: 'Windows' }
+    ];
+    
+    //indexedDB boilerplate
+    if (!window.indexedDB) {
+        window.alert('Your browser does not support a stable version of IndexedDB.');
+    }
+    var request = window.indexedDB.open('libraryDB', 1);
+    request.onerror = function (e) {
+        window.alert('Something has gone amiss.');
+    };
+    request.onupgradeneeded = function (e) {
+        var db = e.target.result,
+            store = db.createObjectStore('games', { autoIncrement: true });
+        store.createIndex('title', 'title', { unique: false });
+        store.createIndex('platform', 'platform', { unique: false });
+        
+        store.transaction.oncomplete = function (e) {
+            var i;
+            var gameStore = db.transaction('customers', 'readwrite').objectStore('customers');
+            for (i in gameData) {
+                gameStore.add(gameData[i]);
+            }
+        };
+    };
+    request.onsuccess = function (e) {
+        window.alert('Noice!');
+    };
+    
+    var transaction = db.transaction(['games']);
+    var store = transaction.objectStore('customers');
+    var request = store.get('1');
 }]);
 app.controller('musicController', ['$scope', function($scope) {
 	$('#bs-navbar-collapse ul li').removeClass('active');
