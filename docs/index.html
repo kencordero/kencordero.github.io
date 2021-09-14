@@ -1,12 +1,54 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="utf-8">
-  <title>Site</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="styles.31d6cfe0d16ae931b73c.css"></head>
-<body>
-  <app-root></app-root>
-<script src="runtime.32f9ca4e0937570368d5.js" defer></script><script src="polyfills.e0cb54cd1db095390c22.js" defer></script><script src="main.844d115125e4a0f8b148.js" defer></script>
+<!doctype html>
+<html lang="en-us" ng-app="app">
+<title>This is a website</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-</body></html>
+<link rel='shortcut icon' type='image/x-icon' href='assets/favicon.ico'>
+
+<!-- Style sheets for Bootstrap and FontAwesome -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="styles/default.css">
+
+<!-- Scripts for jQuery, Bootstrap, Angular -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+
+<script src="scripts/db.js"></script>
+<script src="scripts/app.js"></script>
+
+<nav class="container navbar navbar-fixed-top navbar-inverse">
+    <div class="container-fluid">   
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="#/">Ken, the Ken</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li id="menu-home"><a href="#/"><i class="fa fa-home"></i><span class="sr-only">(current)</span></a>
+                <li id="menu-library"><a href="#/library"><i class="fa fa-book"></i></a>
+                <li id="menu-music"><a href="#/music"><i class="fa fa-music"></i></a>
+                <li id="menu-game"><a href="#/game"><i class="fa fa-gamepad"></i></a>
+                <li id="menu-about"><a href="#/about"><i class="fa fa-info"></i></a>
+                <li id="menu-contact"><a href="#/contact"><i class="fa fa-envelope"></i></a>                
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div ng-view></div>
+    <div class="footer navbar-fixed-bottom" ng-controller="dateController">
+        <hr />
+        © {{currentYear}} Kenneth Cordero.<br/>
+    </div>
+</div>
+</html>
