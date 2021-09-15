@@ -11,13 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { MusicComponent } from './music/music.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    MusicComponent
+    MusicComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
