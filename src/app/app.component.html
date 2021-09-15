@@ -1,26 +1,33 @@
-<nav class="container navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">   
-      <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed">Home</button>
-          <a class="navbar-brand" routerLink="/">Ken, the Ken</a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-              <li id="menu-home"><a routerLink="/">Home</a>
-              <li id="menu-music"><a routerLink="/music">Music</a>
-              <li id="menu-about"><a routerLink="/about">About</a>
-          </ul>
-      </div>
-  </div>
-</nav>
 <div class="container">
-  <router-outlet></router-outlet>
-</div>
-<div class="footer">
-    <mat-divider></mat-divider>
 
-    &copy; {{ currentYear }} Kenneth Cordero.<br/>
-</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Ken, the Ken</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-
-
+        <div class="collapse navbar-collapse pull-right" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">Home</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/music">Music</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Games (Coming soon)
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" routerLink="/capitals">Capital quiz</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
