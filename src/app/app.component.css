@@ -5,3 +5,25 @@
 .pad {
   padding: 5px;
 }
+
+body {
+  padding-top:60px;
+  text-align: center;   
+}
+
+hr {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.footer {
+  font-size: x-small;
+  position: fixed;     
+  text-align: center;    
+  bottom: 0px; 
+  width: 100%;
+}
