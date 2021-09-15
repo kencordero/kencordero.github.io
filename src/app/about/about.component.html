@@ -1,1 +1,6 @@
-<p>about works!</p>
+<h5 class="center">About Me</h5>
+<div class="center" *ngIf="user">
+    <div>{{user.name}}</div>
+    <div>{{user.location}}</div>
+    <div><img src="{{user.avatar_url}}" alt="{{user.name}}" title="{{user.name}}"/></div>
+</div>

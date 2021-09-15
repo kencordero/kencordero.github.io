@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  user: any;
+  
+  constructor(private http: HttpClient) {
+    this.http.get('https://api.github.com/users/kencordero').subscribe((response) => {
+      console.log('response', response);
+      this.user = response;
+    });
+   }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
