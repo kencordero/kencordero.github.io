@@ -89,7 +89,7 @@ app.controller('musicController', ['$scope', function($scope) {
     $('#menu-narvaez').click(function() {
         $('#videos iframe').hide();
         $('#video-narvaez').show();
-    });                                                                                                                         
+    });
 }]);
 
 app.controller('gameController', ['$scope', function($scope) {

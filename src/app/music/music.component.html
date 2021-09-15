@@ -1,1 +1,16 @@
-<p>music works!</p>
+<div class="center">
+	<h1>Classical guitar</h1>
+    <h5>Performed by Kenneth Cordero</h5>
+</div>
+<div id="repertory" class="col-md-3">
+	<ul>
+        <li id="menu-bach996-2"><a>Bach - Allemande from BWV 996</a>
+        <li id="menu-bach999"><a>Bach - Prelude, BWV 999</a>
+        <li id="menu-narvaez"><a>Narvaez - Guardame las vacas</a>
+    </ul>        
+</div>
+<div id="videos" class="col-md-9">
+	<iframe *ngIf="activeVideo === 'bach996-2'" id="video-bach996-2" class="video" src="https://www.youtube.com/embed/UUbqdJDEoM4" allowfullscreen></iframe>
+    <iframe *ngIf="activeVideo === 'bach999'" id="video-bach999" class="video" src="https://www.youtube.com/embed/BDo5dEkTTUw" allowfullscreen></iframe>
+    <iframe *ngIf="activeVideo === 'narvaez'" id="video-narvaez" class="video" src="https://www.youtube.com/embed/qy1ccbpFoTI" allowfullscreen></iframe>
+</div>
