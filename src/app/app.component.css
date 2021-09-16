@@ -1,14 +1,15 @@
 .spacer {
-    flex: 1 1 auto;
+    flex: 30;
   }
 
-.pad {
-  padding: 5px;
+body {
+  padding-top: 60px;
+  text-align: center;   
 }
 
-body {
-  padding-top:60px;
-  text-align: center;   
+.active-link {
+  background-color: blueviolet !important;
+  color: white !important;
 }
 
 hr {
@@ -27,15 +28,4 @@ hr {
 body {
   padding-top: 20px;
   padding-bottom: 20px;
-}
-
-.navbar {
-  margin-bottom: 20px;
-}
-
-.icon-bars {
-  display:block;
-  width:22px;
-  height:2px;
-  border-radius:1px;
 }
