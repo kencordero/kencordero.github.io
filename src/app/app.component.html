@@ -1,33 +1,17 @@
-<div class="container">
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Ken, the Ken</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse pull-right" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/">Home</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/music">Music</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Games (Coming soon)
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" routerLink="/capitals">Capital quiz</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/about">About</a>
-                </li>
-            </ul>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button mat-button class="navbar-brand" routerLink="/"><mat-icon>home</mat-icon>Ken, the Ken</button>
+        <div class="spacer"></div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav">
+                <button mat-button class="nav-item nav-link" routerLink="/music" routerLinkActive="active-link"><mat-icon>music_video</mat-icon>
+                    Music</button>
+                <button mat-button [matMenuTriggerFor]="menu" routerLinkActive="active-link"><mat-icon>games</mat-icon>Games</button>
+                <mat-menu #menu>
+                    <button mat-menu-item class="dropdown-item disabled" routerLink="/games/capitals">Coming soon!</button>
+                </mat-menu>
+                <button mat-button class="nav-item nav-link" routerLink="/about" routerLinkActive="active-link"><mat-icon>info</mat-icon>About</button>
+            </div>
         </div>
     </nav>
     <router-outlet></router-outlet>
