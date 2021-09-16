@@ -11,7 +11,6 @@ export class AboutComponent implements OnInit {
   
   constructor(private http: HttpClient) {
     this.http.get('https://api.github.com/users/kencordero').subscribe((response) => {
-      console.log('response', response);
       this.user = response;
     });
    }
