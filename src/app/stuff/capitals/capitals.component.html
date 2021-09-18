@@ -1,0 +1,10 @@
+<div *ngIf="question">
+    <h1 class="move-down center">What is the capital of {{ question.country }}?</h1>
+    <button *ngFor="let option of question.options" mat-raised-button (click)=checkResponse(option)>{{ option.capital }}</button>
+    <div class="move-down row">
+        <button class="col-md-4" mat-raised-button (click)="setupQuestion()">Another question</button>
+    </div>
+    <div *ngIf="result !== undefined" class="move-down row">
+        <div class="success">{{ result ? 'Correct!' : 'Incorrect. The correct answer is ' + question.correctAnswer }}</div>
+    </div>
+</div>

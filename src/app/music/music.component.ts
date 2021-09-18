@@ -9,7 +9,7 @@ import { videos } from './videos';
   styleUrls: ['./music.component.css']
 })
 export class MusicComponent implements OnInit {
-  videos = videos;
+  videos: any[] = videos;
   activeVideo: string | undefined;
 
   constructor() { }
