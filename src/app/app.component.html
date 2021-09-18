@@ -9,7 +9,7 @@
                 <div routerLinkActive="active-link">
                     <button mat-button [matMenuTriggerFor]="menu"><mat-icon>games</mat-icon>Stuff</button>
                     <mat-menu #menu>
-                        <button mat-menu-item class="dropdown-item disabled" routerLink="/stuff/capitals">Coming soon!</button>
+                        <button mat-menu-item class="dropdown-item" routerLink="/stuff/capitals">Capitals</button>
                     </mat-menu>
                 </div>
                 <button mat-button class="nav-item nav-link" routerLink="/about" routerLinkActive="active-link"><mat-icon>info</mat-icon>About</button>
@@ -17,3 +17,7 @@
         </div>
     </nav>
     <router-outlet></router-outlet>
+    <div class="footer navbar-fixed-bottom" ng-controller="dateController">
+        <hr />
+        © {{currentYear}} Kenneth Cordero.<br/>
+    </div>
