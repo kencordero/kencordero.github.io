@@ -15,7 +15,6 @@ import { AboutComponent } from './about/about.component';
 import { MusicComponent } from './music/music.component';
 import { MainComponent } from './main/main.component';
 import { CapitalsComponent } from './stuff/capitals/capitals.component';
-import { QuizService } from './quiz.service';
 
 @NgModule({
   declarations: [
@@ -36,9 +35,6 @@ import { QuizService } from './quiz.service';
     MatButtonModule,
     MatMenuModule,
     SafePipeModule,
-  ],
-  providers: [ 
-    QuizService
   ],
   bootstrap: [AppComponent]
 })
