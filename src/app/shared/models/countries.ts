@@ -477,11 +477,7 @@ export const countries = [
     },
     {
         "name": "Marshall Islands",
-        "capital": "Dalap-Uliga-Darrit"
-    },
-    {
-        "name": "Martinique",
-        "capital": "Fort-de-France"
+        "capital": "Majuro"
     },
     {
         "name": "Mauritania",

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { countries } from './countries';
+import { countries } from '../../shared/models/countries';
 
 const CHOICE_COUNT = 9;
 
