@@ -3,6 +3,6 @@ import { Country } from "./country.model";
 export interface Question {
     question: string,
     correctAnswer: string,
-    options: Country[],
+    options: string[],
     result: boolean | undefined
 };

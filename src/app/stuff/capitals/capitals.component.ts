@@ -25,7 +25,7 @@ export class CapitalsComponent implements OnInit {
     this.question = this.quizService.setupQuestion();
   }  
 
-  onOptionSelected(option: Country) {
+  onOptionSelected(option: string) {
     this.result = this.quizService.checkResponse(option);
   }
 }
