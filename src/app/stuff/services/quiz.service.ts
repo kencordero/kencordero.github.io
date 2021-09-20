@@ -23,10 +23,10 @@ export class QuizService {
     const randomCountryId = Math.floor(Math.random() * countries.length);
     this.question.question = countries[randomCountryId].name;
     this.question.correctAnswer = countries[randomCountryId].capital;
-    let wrongAnswers: any[] = countries.filter(c => c.name !== this.question.question);
+    let wrongAnswers: any[] = countries.filter(c => c.name !== this.question.question).map(c => c.capital);
     this.shuffle(wrongAnswers);
     wrongAnswers = wrongAnswers.slice(0, CHOICE_COUNT - 1);
-    wrongAnswers.unshift(countries[randomCountryId]);
+    wrongAnswers.unshift(countries[randomCountryId].capital);
     this.shuffle(wrongAnswers);
     this.question.options = wrongAnswers;
     console.log('question', this.question);
@@ -43,6 +43,6 @@ export class QuizService {
   }
 
   checkResponse(option: any): boolean {
-    return option.capital === this.question.correctAnswer;
+    return option === this.question.correctAnswer;
   }
 }
