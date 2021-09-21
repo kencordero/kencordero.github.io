@@ -13,6 +13,7 @@ const CHOICE_COUNT = 9;
 export class CapitalsComponent implements OnInit {
   question: Question;
   result: boolean | undefined;
+  optionSelected: string | undefined;
   constructor(private quizService: QuizService) { 
     this.question = this.quizService.setupQuestion();
   }
@@ -22,10 +23,12 @@ export class CapitalsComponent implements OnInit {
 
   onNextQuestion() {
     this.result = undefined;
+    this.optionSelected = undefined;
     this.question = this.quizService.setupQuestion();
   }  
 
   onOptionSelected(option: string) {
+    this.optionSelected = option;
     this.result = this.quizService.checkResponse(option);
   }
 }
