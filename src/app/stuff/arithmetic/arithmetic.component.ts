@@ -26,36 +26,36 @@ export class ArithmeticComponent implements OnInit {
     let min = 0;
     switch (this.operator) {
       case 'addition':
-        this.operatorSymbol = '+'
-        max = 99;
-        min = 10;
-        break;
-      case 'subtraction':
-        this.operatorSymbol = '-';
-        max = 99;
-        min = 10;
-        break;
-      case 'multiplication':
-        this.operatorSymbol = '×';
-        max = 12;
-        min = 0;
-        break;
-    }
-    this.number1 = this.createRandomNumber(min, max);
-    this.number2 = this.createRandomNumber(min, max);
-
-    switch (this.operator) {
-      case 'addition':
+        this.operatorSymbol = '+';
+        [min, max] = [10, 99];
+        this.number1 = this.createRandomNumber(min, max);
+        this.number2 = this.createRandomNumber(min, max);
         this.correctAnswer = this.number1 + this.number2;
         break;
       case 'subtraction':
-        if (this.number2 > this.number1) {
+        this.operatorSymbol = '-';
+        [min, max] = [10, 99];
+        this.number1 = this.createRandomNumber(min, max);
+        this.number2 = this.createRandomNumber(min, max);
+        
+        if (this.number2 > this.number1) { // Avoid negative numbers
           [this.number1, this.number2] = [this.number2, this.number1];
         }
         this.correctAnswer = this.number1 - this.number2;
         break;
       case 'multiplication':
+        this.operatorSymbol = '×';
+        [min, max] = [0, 12];
+        this.number1 = this.createRandomNumber(min, max);
+        this.number2 = this.createRandomNumber(min, max);
         this.correctAnswer = this.number1 * this.number2;
+        break;
+      case 'division':
+        this.operatorSymbol = '÷';
+        [min, max] = [1, 12];
+        this.correctAnswer = this.createRandomNumber(min, max);
+        this.number2 = this.createRandomNumber(min, max);
+        this.number1 = this.correctAnswer * this.number2;
         break;
     }
   }
