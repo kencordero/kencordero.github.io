@@ -14,15 +14,13 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { MusicComponent } from './music/music.component';
 import { MainComponent } from './main/main.component';
-import { CapitalsComponent } from './stuff/capitals/capitals.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     MusicComponent,
-    MainComponent,
-    CapitalsComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,
