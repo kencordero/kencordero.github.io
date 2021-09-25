@@ -22,37 +22,47 @@ export class ArithmeticComponent implements OnInit {
   setupQuestion() {
     this.response = undefined;
     this.isCorrect = undefined;
-    let max: number;
+    let max = 0;
+    let min = 0;
     switch (this.operator) {
       case 'addition':
         this.operatorSymbol = '+'
-        max = 100;
+        max = 99;
+        min = 10;
+        break;
+      case 'subtraction':
+        this.operatorSymbol = '-';
+        max = 99;
+        min = 10;
         break;
       case 'multiplication':
-        this.operatorSymbol = 'x';
+        this.operatorSymbol = '×';
         max = 12;
-        break;
-      default:
-        max = 0;
+        min = 0;
         break;
     }
-    this.number1 = this.createRandomNumber(1, max);
-    this.number2 = this.createRandomNumber(1, max);
+    this.number1 = this.createRandomNumber(min, max);
+    this.number2 = this.createRandomNumber(min, max);
 
     switch (this.operator) {
       case 'addition':
         this.correctAnswer = this.number1 + this.number2;
         break;
+      case 'subtraction':
+        if (this.number2 > this.number1) {
+          [this.number1, this.number2] = [this.number2, this.number1];
+        }
+        this.correctAnswer = this.number1 - this.number2;
+        break;
       case 'multiplication':
         this.correctAnswer = this.number1 * this.number2;
         break;
     }
-    
   }
 
   createRandomNumber(min: number, max: number): number {
     min = Math.ceil(min);
-    max = Math.floor(max);
+    max = Math.floor(max + 1);
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
   }
 
