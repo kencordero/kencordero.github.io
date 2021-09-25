@@ -1,1 +1,11 @@
-<p>arithmetic works!</p>
+<mat-button-toggle-group [(ngModel)]="operator" name="operator" (change)="onOperatorChanged($event)">
+    <mat-button-toggle value="addition">Addition</mat-button-toggle>
+    <mat-button-toggle value="multiplication">Multiplication</mat-button-toggle>
+  </mat-button-toggle-group>
+<mat-card class="pull-down">
+    <mat-card-title>{{ number1 }} {{ operatorSymbol }} {{ number2 }} =</mat-card-title>
+</mat-card>
+<input class="pull-down" autofocus [(ngModel)]="response" mat-input placeholder="Enter the answer" (keypress)="checkResponse($event)">
+<div *ngIf="isCorrect !== undefined">{{ isCorrect ? 'correct!' : 'incorrect. the correct answer is ' + correctAnswer }}
+
+</div>
