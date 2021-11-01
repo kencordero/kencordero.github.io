@@ -13,6 +13,8 @@ export class ArithmeticComponent implements OnInit {
   operator: string;
   operatorSymbol?: string;
   response?: string;
+  min = 0;
+  max = 0;
   
   constructor() {
     this.operator = 'addition';
@@ -22,21 +24,19 @@ export class ArithmeticComponent implements OnInit {
   setupQuestion() {
     this.response = undefined;
     this.isCorrect = undefined;
-    let max = 0;
-    let min = 0;
     switch (this.operator) {
       case 'addition':
         this.operatorSymbol = '+';
-        [min, max] = [10, 99];
-        this.number1 = this.createRandomNumber(min, max);
-        this.number2 = this.createRandomNumber(min, max);
+        [this.min, this.max] = [10, 99];
+        this.number1 = this.createRandomNumber();
+        this.number2 = this.createRandomNumber();
         this.correctAnswer = this.number1 + this.number2;
         break;
       case 'subtraction':
         this.operatorSymbol = '-';
-        [min, max] = [10, 99];
-        this.number1 = this.createRandomNumber(min, max);
-        this.number2 = this.createRandomNumber(min, max);
+        [this.min, this.max] = [10, 99];
+        this.number1 = this.createRandomNumber();
+        this.number2 = this.createRandomNumber();
         
         if (this.number2 > this.number1) { // Avoid negative numbers
           [this.number1, this.number2] = [this.number2, this.number1];
@@ -45,25 +45,25 @@ export class ArithmeticComponent implements OnInit {
         break;
       case 'multiplication':
         this.operatorSymbol = '×';
-        [min, max] = [0, 12];
-        this.number1 = this.createRandomNumber(min, max);
-        this.number2 = this.createRandomNumber(min, max);
+        [this.min, this.max] = [0, 12];
+        this.number1 = this.createRandomNumber();
+        this.number2 = this.createRandomNumber();
         this.correctAnswer = this.number1 * this.number2;
         break;
       case 'division':
         this.operatorSymbol = '÷';
-        [min, max] = [1, 12];
-        this.correctAnswer = this.createRandomNumber(min, max);
-        this.number2 = this.createRandomNumber(min, max);
+        [this.min, this.max] = [1, 12];
+        this.correctAnswer = this.createRandomNumber();
+        this.number2 = this.createRandomNumber();
         this.number1 = this.correctAnswer * this.number2;
         break;
     }
   }
 
-  createRandomNumber(min: number, max: number): number {
-    min = Math.ceil(min);
-    max = Math.floor(max + 1);
-    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  createRandomNumber(): number {
+    const min = Math.ceil(this.min);
+    const max = Math.floor(this.max + 1);
+    return Math.floor(Math.random() * (max - min) + min); //The this.maximum is exclusive and the this.minimum is inclusive
   }
 
   ngOnInit(): void {
@@ -71,7 +71,7 @@ export class ArithmeticComponent implements OnInit {
 
   checkResponse(e: KeyboardEvent) {
     if (e.key !== 'Enter') return;
-    this.isCorrect = this.response == this.correctAnswer;
+    this.isCorrect = this.response === this.correctAnswer;
     console.log(this.isCorrect);
     setTimeout(() => this.setupQuestion(), 1500);
   }
