@@ -10,8 +10,8 @@ export class ArithmeticComponent implements OnInit {
   number1?: number;
   number2?: number;
   isCorrect?: boolean;
-  operator: string;
-  operatorSymbol?: string;
+  operator: 'addition' | 'subtraction' | 'multiplication' | 'division';
+  operatorSymbol?: '+' | '-' | '×' | '÷';
   response?: string;
   min = 0;
   max = 0;
