@@ -5,10 +5,10 @@
 <div id="repertory" class="col-md-3">
 	<ul>
         <li *ngFor="let video of videos">
-            <button mat-button (click)="setActiveVideo(video.url)">{{ video.title }}</button>
+            <button mat-button (click)="setActiveVideo(video.videoId)">{{ video.title }}</button>
         </li>
     </ul>        
 </div>
 <div id="videos" class="col-md-9">
-	<iframe *ngIf="activeVideo" class="video" [src]="activeVideo | safe: 'resourceUrl'" allowfullscreen></iframe>
+    <video-player *ngIf="activeVideo" [videoId]="activeVideo"></video-player>
 </div>

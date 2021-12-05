@@ -21,9 +21,9 @@
     "@angular/platform-browser": "~13.0.2",
     "@angular/platform-browser-dynamic": "~13.0.2",
     "@angular/router": "~13.0.2",
+    "@angular/youtube-player": "^13.0.2",
     "bootstrap": "^5.1.1",
     "rxjs": "~6.6.0",
-    "safe-pipe": "^1.0.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
