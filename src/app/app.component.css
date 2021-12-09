@@ -1,6 +1,6 @@
 .spacer {
-    flex: 30;
-  }
+  flex: 1 1 auto;
+}
 
 body {
   padding-top: 60px;
