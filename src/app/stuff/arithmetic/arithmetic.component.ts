@@ -10,14 +10,13 @@ export class ArithmeticComponent implements OnInit {
   number1?: number;
   number2?: number;
   isCorrect?: boolean;
-  operator: 'addition' | 'subtraction' | 'multiplication' | 'division';
-  operatorSymbol?: '+' | '-' | '×' | '÷';
+  operator: 'addition' | 'subtraction' | 'multiplication' | 'division' = 'addition';
+  operatorSymbol: '+' | '-' | '×' | '÷' = '+';
   response?: string;
   min = 0;
   max = 0;
   
   constructor() {
-    this.operator = 'addition';
     this.setupQuestion();    
   }
 
