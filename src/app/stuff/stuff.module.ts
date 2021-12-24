@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { FormsModule } from '@angular/forms';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { StuffRoutingModule } from './stuff-routing.module';
 import { QuizService } from './services/quiz.service';
 import { ArithmeticComponent } from './arithmetic/arithmetic.component';
 import { ArithmeticService } from './services/arithmetic.service';
 import { CapitalsComponent } from './capitals/capitals.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,16 +13,12 @@ import { CapitalsComponent } from './capitals/capitals.component';
     CapitalsComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
-    MatCardModule,
-    MatButtonToggleModule,
-    StuffRoutingModule
+    StuffRoutingModule,
+    SharedModule
   ],
   providers: [
     QuizService,
     ArithmeticService
   ],
-
 })
 export class StuffModule { }
