@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { shuffle } from 'src/app/shared/utils';
 
-import { countries } from '../../shared/models/countries';
+import { countries } from '../../shared/data-sets/countries';
 import { Question } from '../models/question.model';
 
 const CHOICE_COUNT = 9;

@@ -6,11 +6,13 @@ import { ArithmeticComponent } from './arithmetic/arithmetic.component';
 import { ArithmeticService } from './services/arithmetic.service';
 import { CapitalsComponent } from './capitals/capitals.component';
 import { SharedModule } from '../shared/shared.module';
+import { SpellingBeeComponent } from './spelling-bee/spelling-bee.component';
 
 @NgModule({
   declarations: [
     ArithmeticComponent,
-    CapitalsComponent
+    CapitalsComponent,
+    SpellingBeeComponent
   ],
   imports: [
     StuffRoutingModule,
