@@ -13,7 +13,7 @@ export class SpellingBeeComponent {
     this.word = this.api.getRandomWord();
   }
 
-  onClickNext(): void {
+  onClickRandom(): void {
     this.word = this.api.getRandomWord();
   }
 }
