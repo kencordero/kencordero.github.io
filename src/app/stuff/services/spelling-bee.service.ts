@@ -6,6 +6,7 @@ import { words } from 'src/app/shared/data-sets/words';
 })
 export class SpellingBeeService {
   private wordList = words;
+  private currentWordIndex = -1;
   constructor() {
     this.wordList = this.shuffle(this.wordList);
    }
@@ -14,11 +15,10 @@ export class SpellingBeeService {
     return this.wordList[Math.floor(Math.random() * this.wordList.length)];
   }
 
-  // public function* getNextWord() {
-  //   for (let word of this.wordList) {
-  //     yield word;
-  //   }
-  // }
+  public getNextWord(): string {
+    this.currentWordIndex = (this.currentWordIndex + 1) % this.wordList.length;
+    return this.wordList[this.currentWordIndex];
+  }
 
   private shuffle(array: any[]) {
     let currentIndex = array.length;
