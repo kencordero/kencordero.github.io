@@ -10,10 +10,10 @@ export class SpellingBeeComponent {
   public word: string;
 
   constructor(private api: SpellingBeeService) {
-    this.word = this.api.getRandomWord();
+    this.word = this.api.getNextWord();
   }
 
-  onClickRandom(): void {
-    this.word = this.api.getRandomWord();
+  onClickNext(): void {
+    this.word = this.api.getNextWord();
   }
 }
