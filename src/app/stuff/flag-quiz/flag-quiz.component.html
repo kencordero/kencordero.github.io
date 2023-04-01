@@ -1,0 +1,13 @@
+<div *ngIf="question" class="container">
+    <img src="/assets/svg/{{question.imageUrl | lowercase }}.svg">
+    <button class="col-3 option" *ngFor="let option of question.options" 
+        [ngClass]="[result !== undefined && option === question.correctAnswer ? 'correct' : '', 
+                    result === false && option === optionSelected ? 'incorrect': '']" 
+        mat-raised-button (click)=onOptionSelected(option)>{{ option }}</button>
+    <div class="move-down row">
+        <button class="col align-self-center" mat-raised-button (click)="onNextQuestion()">Another question</button>
+    </div>
+    <div *ngIf="result !== undefined" class="move-down row">
+        <div class="success">{{ result ? 'Correct!' : 'Incorrect. The correct answer is ' + question.correctAnswer }}</div>
+    </div>
+</div>
