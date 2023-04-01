@@ -7,12 +7,14 @@ import { ArithmeticService } from './services/arithmetic.service';
 import { CapitalsComponent } from './capitals/capitals.component';
 import { SharedModule } from '../shared/shared.module';
 import { SpellingBeeComponent } from './spelling-bee/spelling-bee.component';
+import { FlagQuizComponent } from './flag-quiz/flag-quiz.component';
 
 @NgModule({
   declarations: [
     ArithmeticComponent,
     CapitalsComponent,
-    SpellingBeeComponent
+    SpellingBeeComponent,
+    FlagQuizComponent
   ],
   imports: [
     StuffRoutingModule,
