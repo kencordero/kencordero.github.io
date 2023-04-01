@@ -9,7 +9,7 @@ const CHOICE_COUNT = 9;
 @Injectable({
   providedIn: 'root'
 })
-export class QuizService {
+export class CapitalQuizService {
   question: Question = {
     question: '',
     correctAnswer: '',

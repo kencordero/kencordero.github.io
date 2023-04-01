@@ -1,4 +1,4 @@
-{
+export const countryCodes: any = {
     "AD": "Andorra",
     "AE": "United Arab Emirates",
     "AF": "Afghanistan",
