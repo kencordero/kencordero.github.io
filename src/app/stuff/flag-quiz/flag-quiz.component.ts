@@ -28,5 +28,6 @@ export class FlagQuizComponent implements OnInit {
   onOptionSelected(option: string) {
     this.optionSelected = option;
     this.result = this.flagService.checkResponse(option);
+    setTimeout(() => this.onNextQuestion(), 2_000);
   }
 }

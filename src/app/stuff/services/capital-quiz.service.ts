@@ -30,7 +30,6 @@ export class CapitalQuizService {
     wrongAnswers.unshift(countries[randomCountryId].capital);
     shuffle(wrongAnswers);
     this.question.options = wrongAnswers;
-    console.log('question', this.question);
     return this.question;
   }
 
