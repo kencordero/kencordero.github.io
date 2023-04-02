@@ -71,7 +71,6 @@ export class ArithmeticComponent implements OnInit {
   checkResponse(e: KeyboardEvent) {
     if (e.key !== 'Enter') return;
     this.isCorrect = this.response === this.correctAnswer;
-    console.log(this.isCorrect);
     setTimeout(() => this.setupQuestion(), 1500);
   }
 
