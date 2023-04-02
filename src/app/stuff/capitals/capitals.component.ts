@@ -29,5 +29,6 @@ export class CapitalsComponent implements OnInit {
   onOptionSelected(option: string) {
     this.optionSelected = option;
     this.result = this.quizService.checkResponse(option);
+    setTimeout(() => this.onNextQuestion(), 2_000);
   }
 }
