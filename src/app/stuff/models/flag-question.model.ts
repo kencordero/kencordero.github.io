@@ -1,5 +1,5 @@
 export interface FlagQuestion {
-    imageUrl: string,
+    question: string,
     correctAnswer: string,
     options: string[],
     result: boolean | undefined

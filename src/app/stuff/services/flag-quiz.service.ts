@@ -10,7 +10,7 @@ const CHOICE_COUNT = 9;
 })
 export class FlagQuizService {
   question: FlagQuestion = {
-    imageUrl: '',
+    question: '',
     correctAnswer: '',
     options: [],
     result: undefined
@@ -18,13 +18,13 @@ export class FlagQuizService {
 
   constructor() { }
 
-  public setupQuestion(): FlagQuestion {
+  public setupQuestion(isInverseQuestion: boolean): FlagQuestion {
     var keys = Object.keys(countryCodes);
     var options = _.sampleSize(countryCodes, 9);
     const correctAnswer = options[0];
     var first = _.find(keys, x => countryCodes[x] === correctAnswer) ?? '';
     this.question = {
-      imageUrl: first.toLowerCase(),
+      question: first.toLowerCase(),
       correctAnswer: correctAnswer,
       options: _.shuffle(options),
       result: undefined

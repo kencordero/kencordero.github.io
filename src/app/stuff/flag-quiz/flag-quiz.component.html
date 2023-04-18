@@ -1,5 +1,5 @@
-<div *ngIf="question" class="container justify-content-center">
-    <img src="/assets/svg/{{question.imageUrl }}.svg">
+<div *ngIf="question && isInverseQuestion" class="container justify-content-center">
+    <h1 class="move-down center">What is the flag of {{ question.question }}?</h1>
     <button class="col-3 option justify-content-center" *ngFor="let option of question.options" 
         [ngClass]="[result !== undefined && option === question.correctAnswer ? 'correct' : '', 
                     result === false && option === optionSelected ? 'incorrect': '']" 
