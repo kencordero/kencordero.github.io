@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Question } from '../models/question.model';
 import { FlagQuizService } from '../services/flag-quiz.service';
 import { FlagQuestion } from '../models/flag-question.model';
 
@@ -9,11 +8,12 @@ import { FlagQuestion } from '../models/flag-question.model';
   styleUrls: ['./flag-quiz.component.css']
 })
 export class FlagQuizComponent implements OnInit {
+  isInverseQuestion = true;
   question: FlagQuestion;
   result: boolean | undefined;
   optionSelected: string | undefined;
   constructor(private flagService: FlagQuizService) { 
-    this.question = this.flagService.setupQuestion();
+    this.question = this.flagService.setupQuestion(this.isInverseQuestion);
   }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class FlagQuizComponent implements OnInit {
   onNextQuestion() {
     this.result = undefined;
     this.optionSelected = undefined;
-    this.question = this.flagService.setupQuestion();
+    this.question = this.flagService.setupQuestion(this.isInverseQuestion);
   }  
 
   onOptionSelected(option: string) {
