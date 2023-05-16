@@ -1,13 +1,29 @@
-<div *ngIf="question && isInverseQuestion" class="container justify-content-center">
-    <h1 class="move-down center">What is the flag of {{ question.question }}?</h1>
+<div *ngIf="question && !isInverseQuestion" class="container justify-content-center">
+    <img src="/assets/svg/{{question.question }}.svg">
     <button class="col-3 option justify-content-center" *ngFor="let option of question.options" 
         [ngClass]="[result !== undefined && option === question.correctAnswer ? 'correct' : '', 
                     result === false && option === optionSelected ? 'incorrect': '']" 
         mat-raised-button (click)=onOptionSelected(option)>{{ option }}</button>
-    <div class="move-down row">
+    <div *ngIf="result === undefined" class="move-down row">
         <button class="col align-self-center" mat-raised-button (click)="onNextQuestion()">Another question</button>
     </div>
     <div *ngIf="result !== undefined" class="move-down row">
         <div class="success">{{ result ? 'Correct!' : 'Incorrect. The correct answer is ' + question.correctAnswer }}</div>
+    </div>
+</div>
+<div *ngIf="question && isInverseQuestion" class="container justify-content-center">
+    <h1 class="move-down center">What is the flag of {{ question.question }}?</h1>
+    <button class="col-3 inverse justify-content-center" *ngFor="let option of question.options" 
+        [ngClass]="[result !== undefined && option === question.correctAnswer ? 'correct' : '', 
+                    result === false && option === optionSelected ? 'incorrect': '']" 
+        mat-raised-button (click)=onOptionSelected(option)><img src="/assets/svg/{{ option | lowercase }}.svg"></button>
+    <div *ngIf="result === undefined" class="move-down row">
+        <button class="col align-self-center" mat-raised-button (click)="onNextQuestion()">Another question</button>
+    </div>
+    <div *ngIf="result !== undefined && !isInverseQuestion" class="move-down row">
+        <div class="success">{{ result ? 'Correct!' : 'Incorrect. The correct answer is ' + question.correctAnswer }}</div>
+    </div>
+    <div *ngIf="result !== undefined && isInverseQuestion" class="move-down row">
+        <div class="success">{{ result ? 'Correct!' : 'Incorrect.' }}</div>
     </div>
 </div>

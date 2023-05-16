@@ -19,16 +19,30 @@ export class FlagQuizService {
   constructor() { }
 
   public setupQuestion(isInverseQuestion: boolean): FlagQuestion {
-    var keys = Object.keys(countryCodes);
-    var options = _.sampleSize(countryCodes, 9);
-    const correctAnswer = options[0];
-    var first = _.find(keys, x => countryCodes[x] === correctAnswer) ?? '';
-    this.question = {
-      question: first.toLowerCase(),
-      correctAnswer: correctAnswer,
-      options: _.shuffle(options),
-      result: undefined
-    };
+    if (isInverseQuestion) {
+      let keys = Object.keys(countryCodes);
+      let options = _.sampleSize(keys, 9);
+      const correctAnswer = countryCodes[options[0]];
+      let first = _.find(keys, x => countryCodes[x] === correctAnswer) ?? '';
+      this.question = {
+        question: correctAnswer,
+        correctAnswer: first.toLowerCase(),
+        options: _.shuffle(options).map(o => o.toLowerCase()),
+        result: undefined
+      };  
+    }
+    else {
+      let keys = Object.keys(countryCodes);
+      let options = _.sampleSize(countryCodes, 9);
+      const correctAnswer = options[0];
+      let first = _.find(keys, x => countryCodes[x] === correctAnswer) ?? '';
+      this.question = {
+        question: first.toLowerCase(),
+        correctAnswer: correctAnswer,
+        options: _.shuffle(options),
+        result: undefined
+      };
+    }
     return this.question;
   }
 

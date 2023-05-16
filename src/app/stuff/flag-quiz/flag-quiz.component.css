@@ -8,6 +8,12 @@
     width: 32%; 
 }
 
+.inverse {
+    margin: 2px;
+    height: 200px;
+    width: 32%; 
+}
+
 .correct {
     background-color: green;
     color: white;
