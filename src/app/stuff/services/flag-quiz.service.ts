@@ -21,7 +21,7 @@ export class FlagQuizService {
   public setupQuestion(isInverseQuestion: boolean): FlagQuestion {
     if (isInverseQuestion) {
       let keys = Object.keys(countryCodes);
-      let options = _.sampleSize(keys, 9);
+      let options = _.sampleSize(keys, CHOICE_COUNT);
       const correctAnswer = countryCodes[options[0]];
       let first = _.find(keys, x => countryCodes[x] === correctAnswer) ?? '';
       this.question = {
@@ -33,7 +33,7 @@ export class FlagQuizService {
     }
     else {
       let keys = Object.keys(countryCodes);
-      let options = _.sampleSize(countryCodes, 9);
+      let options = _.sampleSize(countryCodes, CHOICE_COUNT);
       const correctAnswer = options[0];
       let first = _.find(keys, x => countryCodes[x] === correctAnswer) ?? '';
       this.question = {
