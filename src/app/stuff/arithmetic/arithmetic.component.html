@@ -13,10 +13,11 @@
   <input class="inline" mat-input type="number">
 </div> -->
 <div class="row pull-down">
-  <mat-card class="col-4 col-md-2">
-      <mat-card-title>{{ number1 }} {{ operatorSymbol }} {{ number2 }} =</mat-card-title>
-  </mat-card>
-  <input class="col-4 col-md-2" type="number" autofocus [(ngModel)]="response" mat-input placeholder="Enter the answer" (keypress)="checkResponse($event)">
+  <h1>{{ number1 }} {{ operatorSymbol }} {{ number2 }} =</h1>
+  
+  <input id="textInput" type="number" autofocus [(ngModel)]="response" mat-input (keypress)="checkResponse($event)">
+  
+  <div id="info" [ngClass]="{'correct': isCorrect, 'incorrect': !isCorrect}" *ngIf="isCorrect !== undefined">{{ isCorrect ? 'Correct!' : 'The correct answer is ' + correctAnswer }}
+  </div>
 </div>
-<div *ngIf="isCorrect !== undefined">{{ isCorrect ? 'Correct!' : 'Incorrect. The answer is ' + correctAnswer }}
-</div>
+
