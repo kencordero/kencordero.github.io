@@ -5,3 +5,28 @@
 .inline {
     display: inline;
 }
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+}
+
+input#textInput {
+    margin-top: 20px;
+    font-size: 60px;
+    text-align: center;
+}
+
+#info {
+    margin-top: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
