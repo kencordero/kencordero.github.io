@@ -1,6 +1,8 @@
 <h5 class="center">About Me</h5>
-<div class="center" *ngIf="user">
+@if (user) {
+<div class="center">
     <div>{{user.name}}</div>
     <div>{{user.location}}</div>
     <div><img src="{{user.avatar_url}}" alt="{{user.name}}" title="{{user.name}}"/></div>
 </div>
+}

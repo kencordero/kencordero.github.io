@@ -4,11 +4,15 @@
 </div>
 <div id="repertory" class="col-md-3">
 	<ul>
-        <li *ngFor="let video of videos">
+        @for (video of videos; track video) {
+        <li>
             <button mat-button (click)="setActiveVideo(video.videoId)">{{ video.title }}</button>
         </li>
+        }
     </ul>        
 </div>
 <div id="videos" class="col-md-9">
-    <video-player *ngIf="activeVideo" [videoId]="activeVideo"></video-player>
+    @if (activeVideo) {
+    <video-player [videoId]="activeVideo"></video-player>
+    }
 </div>
