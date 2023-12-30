@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { words } from 'src/app/shared/data-sets/words';
+import { words } from 'src/app/shared/data-sets/words-2024';
 
 @Injectable({
   providedIn: 'root'
