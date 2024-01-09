@@ -17,7 +17,9 @@
   
   <input id="textInput" type="number" autofocus [(ngModel)]="response" mat-input (keypress)="checkResponse($event)">
   
-  <div id="info" [ngClass]="{'correct': isCorrect, 'incorrect': !isCorrect}" *ngIf="isCorrect !== undefined">{{ isCorrect ? 'Correct!' : 'The correct answer is ' + correctAnswer }}
+  @if (isCorrect !== undefined) {
+  <div id="info" [ngClass]="{'correct': isCorrect, 'incorrect': !isCorrect}">{{ isCorrect ? 'Correct!' : 'The correct answer is ' + correctAnswer }}
   </div>
+  }
 </div>
 
