@@ -26,7 +26,7 @@
     <button class="col-3 inverse justify-content-center" 
         [ngClass]="[result !== undefined && option === question.correctAnswer ? 'correct' : '', 
                     result === false && option === optionSelected ? 'incorrect': '']" 
-        mat-raised-button (click)=onOptionSelected(option)><img src="/assets/svg/{{ option | lowercase }}.svg"></button>
+        mat-raised-button (click)=onOptionSelected(option)><img class="grid" src="/assets/svg/{{ option | lowercase }}.svg"></button>
     }
     @if (result === undefined) {
     <div class="move-down row">
