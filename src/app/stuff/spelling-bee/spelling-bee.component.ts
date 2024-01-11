@@ -19,6 +19,9 @@ export class SpellingBeeComponent implements OnInit {
 
   onClickNext(): void {
     this.word = this.api.getNextWord();
+    this.dictionaryEntry = null;
+    this.definitions = null;
+    
     this.api.getDictionaryEntry(this.word).subscribe({
       next: data => {
         this.dictionaryEntry = data;
