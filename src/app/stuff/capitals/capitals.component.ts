@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../models/question.model';
-import { CapitalQuizService } from '../services/capital-quiz.service';
+import { CapitalQuizService } from '../../services/capital-quiz.service';
 
 const CHOICE_COUNT = 9;
 

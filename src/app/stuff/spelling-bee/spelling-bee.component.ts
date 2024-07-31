@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import SpellingBeeService from '../services/spelling-bee.service';
+import SpellingBeeService from '../../services/spelling-bee.service';
 
 @Component({
   selector: 'app-spelling-bee',
