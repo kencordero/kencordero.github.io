@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { HiraganaService } from 'src/app/services/hiragana.service';
 import { Question } from '../models/question.model';
-import { CapitalQuizService } from '../../services/capital-quiz.service';
-
-const CHOICE_COUNT = 9;
 
 @Component({
-  selector: 'app-capitals',
-  templateUrl: './capitals.component.html',
-  styleUrls: ['./capitals.component.css']
+  selector: 'app-hiragana',
+  templateUrl: './hiragana.component.html',
+  styleUrl: './hiragana.component.css'
 })
-export class CapitalsComponent implements OnInit {
+export class HiraganaComponent {
   question: Question;
   result: boolean | undefined;
   optionSelected: string | undefined;
-  constructor(private quizService: CapitalQuizService) { 
+  constructor(private quizService: HiraganaService) { 
     this.question = this.quizService.setupQuestion();
   }
 

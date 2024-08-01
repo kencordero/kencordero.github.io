@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { countryCodes } from 'src/app/shared/data-sets/country-codes';
-import { FlagQuestion } from '../models/flag-question.model';
+import { FlagQuestion } from '../stuff/models/flag-question.model';
 import * as _ from 'lodash';
 
 const CHOICE_COUNT = 9;

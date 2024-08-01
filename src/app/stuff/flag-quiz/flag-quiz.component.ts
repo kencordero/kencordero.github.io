@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FlagQuizService } from '../services/flag-quiz.service';
+import { FlagQuizService } from '../../services/flag-quiz.service';
 import { FlagQuestion } from '../models/flag-question.model';
 
 @Component({

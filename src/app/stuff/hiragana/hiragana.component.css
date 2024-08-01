@@ -1,0 +1,18 @@
+.move-down {
+    margin-top: 100px;
+}
+
+.option {
+    margin: 2px;
+    width: 32%;
+}
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+.incorrect {
+    background-color: red;
+    color: white;
+}
