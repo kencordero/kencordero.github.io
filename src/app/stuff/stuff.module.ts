@@ -9,13 +9,15 @@ import { SharedModule } from '../shared/shared.module';
 import { SpellingBeeComponent } from './spelling-bee/spelling-bee.component';
 import { FlagQuizComponent } from './flag-quiz/flag-quiz.component';
 import { FlagQuizService } from '../services/flag-quiz.service';
+import { HiraganaComponent } from './hiragana/hiragana.component';
 
 @NgModule({
   declarations: [
     ArithmeticComponent,
     CapitalsComponent,
     SpellingBeeComponent,
-    FlagQuizComponent
+    FlagQuizComponent,
+    HiraganaComponent,
   ],
   imports: [
     StuffRoutingModule,

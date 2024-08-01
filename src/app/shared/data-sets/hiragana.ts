@@ -1,4 +1,4 @@
-export const letters = [	
+export const hiragana = [	
 	{ "kana": "あ", "romaji": "a" },
 	{ "kana": "い", "romaji": "i" },
 	{ "kana": "う", "romaji": "u" },
