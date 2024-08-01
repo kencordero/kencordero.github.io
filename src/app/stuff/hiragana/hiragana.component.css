@@ -1,10 +1,16 @@
 .move-down {
-    margin-top: 100px;
+    margin-top: 80px;
+}
+
+.question {
+    font-size: 120px;
 }
 
 .option {
+    font-size: 30px;
     margin: 2px;
     width: 32%;
+    height: 80px;
 }
 
 .correct {
