@@ -12,6 +12,7 @@ export class HiraganaComponent {
   result: boolean | undefined;
   optionSelected: string | undefined;
   constructor(private quizService: HiraganaService) { 
+    this.quizService.setup();
     this.question = this.quizService.setupQuestion();
   }
 

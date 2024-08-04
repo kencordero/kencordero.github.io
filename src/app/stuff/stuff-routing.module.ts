@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'capitals', component: CapitalsComponent },
   { path: 'arithmetic', component: ArithmeticComponent },
   { path: 'spelling-bee', component: SpellingBeeComponent },
-  { path: 'flag-quiz', component: FlagQuizComponent },
+  { path: 'flags', component: FlagQuizComponent },
   { path: 'hiragana', component: HiraganaComponent},
 ];
 
