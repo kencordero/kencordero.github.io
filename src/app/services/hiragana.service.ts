@@ -16,21 +16,41 @@ export class HiraganaService {
     result: undefined
   };
 
+  public questionNumber = 0;
+  public letters: any[];
+
+  constructor() {
+    this.letters = hiragana;
+  }
+
   public setupQuestion(): Question {
     this.question.result = undefined;
-    const randomId = Math.floor(Math.random() * hiragana.length);
-    this.question.question = hiragana[randomId].kana;
-    this.question.correctAnswer = hiragana[randomId].romaji;
-    let wrongAnswers: any[] = hiragana.filter(c => c.romaji !== this.question.correctAnswer).map(c => c.romaji);
+    this.question.question = this.letters[this.questionNumber].key;
+    this.question.correctAnswer = this.letters[this.questionNumber].value;
+    let wrongAnswers: any[] = this.letters.filter(c => c.value !== this.question.correctAnswer).map(c => c.value);
     shuffle(wrongAnswers);
     wrongAnswers = wrongAnswers.slice(0, CHOICE_COUNT - 1);
-    wrongAnswers.unshift(hiragana[randomId].romaji);
+    wrongAnswers.unshift(this.letters[this.questionNumber].value);
     shuffle(wrongAnswers);
     this.question.options = wrongAnswers;
     return this.question;
   }
 
   checkResponse(option: any): boolean {
+    if (option === this.question.correctAnswer) {
+      this.letters.splice(this.questionNumber, 1);
+    } else {
+      this.questionNumber++; 
+    }
+
+    if (this.questionNumber >= this.letters.length) {
+      this.questionNumber = 0;
+      shuffle(this.letters);
+    }
     return option === this.question.correctAnswer;
+  }
+
+  setup() {
+    shuffle(this.letters);
   }
 }
