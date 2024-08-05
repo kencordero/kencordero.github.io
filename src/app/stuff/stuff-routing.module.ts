@@ -5,6 +5,7 @@ import { CapitalsComponent } from './capitals/capitals.component';
 import { SpellingBeeComponent } from './spelling-bee/spelling-bee.component';
 import { FlagQuizComponent } from './flag-quiz/flag-quiz.component';
 import { HiraganaComponent } from './hiragana/hiragana.component';
+import { DevanagariComponent } from './devanagari/devanagari.component';
 
 const routes: Routes = [
   { path: 'capitals', component: CapitalsComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'spelling-bee', component: SpellingBeeComponent },
   { path: 'flags', component: FlagQuizComponent },
   { path: 'hiragana', component: HiraganaComponent},
+  { path: 'devanagari', component: DevanagariComponent}
 ];
 
 @NgModule({
