@@ -10,6 +10,8 @@ import { SpellingBeeComponent } from './spelling-bee/spelling-bee.component';
 import { FlagQuizComponent } from './flag-quiz/flag-quiz.component';
 import { FlagQuizService } from '../services/flag-quiz.service';
 import { HiraganaComponent } from './hiragana/hiragana.component';
+import { ScriptComponent } from './script/script.component';
+import { DevanagariComponent } from './devanagari/devanagari.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { HiraganaComponent } from './hiragana/hiragana.component';
     SpellingBeeComponent,
     FlagQuizComponent,
     HiraganaComponent,
+    DevanagariComponent,
+    ScriptComponent,
   ],
   imports: [
     StuffRoutingModule,
