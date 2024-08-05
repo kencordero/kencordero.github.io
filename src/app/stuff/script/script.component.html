@@ -1,0 +1,18 @@
+@if (question) {
+    <div class="container">
+        <h1 class="move-down center question">{{ question.question }}</h1>
+        <br><br><br>
+        @for (option of question.options; track option) {
+        <button class="col-4 option" 
+            [ngClass]="[result !== undefined && option === question.correctAnswer ? 'correct' : '', 
+                        result === false && option === optionSelected ? 'incorrect': '']" 
+            mat-raised-button (click)=onOptionSelected(option)>{{ option }}</button>
+        }
+        @if (result !== undefined) {
+        <div class="move-down center row">
+            <div class="success">{{ result ? 'Correct!' : 'Incorrect. The correct answer is ' + question.correctAnswer }}</div>
+        </div>
+        }
+    </div>
+    }
+    

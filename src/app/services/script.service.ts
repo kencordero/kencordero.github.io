@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Question } from '../stuff/models/question.model';
-import { hiragana } from '../shared/data-sets/hiragana';
 import { shuffle } from '../shared/utils';
 
 const CHOICE_COUNT = 9;
@@ -8,7 +7,7 @@ const CHOICE_COUNT = 9;
 @Injectable({
   providedIn: 'root'
 })
-export class HiraganaService {
+export class ScriptService {
   question: Question = {
     question: '',
     correctAnswer: '',
@@ -17,11 +16,7 @@ export class HiraganaService {
   };
 
   public questionNumber = 0;
-  public letters: any[];
-
-  constructor() {
-    this.letters = hiragana;
-  }
+  public letters: any[] = [];
 
   public setupQuestion(): Question {
     this.question.result = undefined;
@@ -50,7 +45,9 @@ export class HiraganaService {
     return option === this.question.correctAnswer;
   }
 
-  setup() {
+  setup(characterSet: any[]): void {
+    console.log('setup', characterSet);
+    this.letters = characterSet;
     shuffle(this.letters);
   }
 }

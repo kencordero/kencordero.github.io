@@ -1,0 +1,24 @@
+.move-down {
+    margin-top: 80px;
+}
+
+.question {
+    font-size: 120px;
+}
+
+.option {
+    font-size: 30px;
+    margin: 2px;
+    width: 32%;
+    height: 80px;
+}
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+.incorrect {
+    background-color: red;
+    color: white;
+}
