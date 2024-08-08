@@ -22,3 +22,13 @@
     background-color: red;
     color: white;
 }
+
+.wrong {
+    color: red;
+    font-size: 20px;
+}
+
+.right {
+    color: green;
+    font-size: 20px;
+}

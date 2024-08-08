@@ -1,5 +1,7 @@
 @if (question) {
     <div class="container">
+        <mat-progress-bar mode="determinate" [value]="progress()"></mat-progress-bar>
+        
         <h1 class="move-down center question">{{ question.question }}</h1>
         <br><br><br>
         @for (option of question.options; track option) {
@@ -8,10 +10,18 @@
                         result === false && option === optionSelected ? 'incorrect': '']" 
             mat-raised-button (click)=onOptionSelected(option)>{{ option }}</button>
         }
+        <br><br>
+        @if (questionCount() > 0) {
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="center">Score: {{ score() }}%</h1>
+                </div>
+            </div>
+        }
         @if (result !== undefined) {
-        <div class="move-down center row">
-            <div class="success">{{ result ? 'Correct!' : 'Incorrect. The correct answer is ' + question.correctAnswer }}</div>
-        </div>
+            <div class="move-down center row">
+                <div [ngClass]="{'right': result, 'wrong': !result}">{{ result ? 'Correct!' : 'Incorrect. The correct answer is ' + question.correctAnswer }}</div>
+            </div>
         }
     </div>
     }
