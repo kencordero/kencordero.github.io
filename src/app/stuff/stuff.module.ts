@@ -12,6 +12,8 @@ import { FlagQuizService } from '../services/flag-quiz.service';
 import { HiraganaComponent } from './hiragana/hiragana.component';
 import { ScriptComponent } from './script/script.component';
 import { DevanagariComponent } from './devanagari/devanagari.component';
+import { KanjiComponent } from './kanji/kanji.component';
+import { KatakanaComponent } from './katakana/katakana.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { DevanagariComponent } from './devanagari/devanagari.component';
     FlagQuizComponent,
     HiraganaComponent,
     DevanagariComponent,
+    KanjiComponent,
+    KatakanaComponent,
     ScriptComponent,
   ],
   imports: [

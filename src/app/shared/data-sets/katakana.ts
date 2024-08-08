@@ -37,4 +37,12 @@ export const katakana = [
   { key: 'ヤ', value: 'ya' },
   { key: 'ユ', value: 'yu' },
   { key: 'ヨ', value: 'yo' },
+  { key: 'ラ', value: 'ra' },
+  { key: 'リ', value: 'ri' },
+  { key: 'ル', value: 'ru' },
+  { key: 'レ', value: 're' },
+  { key: 'ロ', value: 'ro' },
+  { key: 'ワ', value: 'wa' },
+  { key: 'ヲ', value: 'wo' },
+  { key: 'ン', value: 'n' },
 ]
