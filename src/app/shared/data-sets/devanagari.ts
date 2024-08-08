@@ -26,7 +26,7 @@ export const devanagari = [
     { "key": "ठ", "value": "ṭha" },
     { "key": "ड", "value": "ḍa" },
     { "key": "ढ", "value": "ḍha" },
-    { "key": "ण", "value": "na" },
+    { "key": "ण", "value": "ṇa" },
     { "key": "त", "value": "ta" },
     { "key": "थ", "value": "tha" },
     { "key": "द", "value": "da" },

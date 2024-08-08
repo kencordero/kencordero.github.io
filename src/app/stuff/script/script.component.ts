@@ -15,7 +15,7 @@ export class ScriptComponent implements OnInit, OnChanges {
   constructor(private quizService: ScriptService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes', changes)
+    console.log('onChanges', changes)
     this.quizService.setup(changes.characterSet.currentValue);
     this.question = this.quizService.setupQuestion();
   }
@@ -33,8 +33,33 @@ export class ScriptComponent implements OnInit, OnChanges {
   }  
 
   onOptionSelected(option: string) {
+    console.log('option selected', option);
     this.optionSelected = option;
     this.result = this.quizService.checkResponse(option);
     setTimeout(() => this.onNextQuestion(), 2_000);
+  }
+
+  progress(): number {
+    return this.quizService.getProgress();
+  }
+
+  totalQuestionCount(): number {
+    return this.quizService.getTotalQuestionCount();
+  }
+
+  correctAnswerCount(): number {
+    return this.quizService.getCorrectAnswerCount();
+  }
+
+  questionNumber(): number {
+    return this.quizService.getQuestionNumber();
+  }
+
+  score(): number {
+    return this.quizService.getScore();
+  }
+
+  questionCount(): number {
+    return this.quizService.getQuestionCount();
   }
 }

@@ -28,11 +28,7 @@
                     result === false && option === optionSelected ? 'incorrect': '']" 
         mat-raised-button (click)=onOptionSelected(option)><img class="grid" src="/assets/svg/{{ option | lowercase }}.svg"></button>
     }
-    @if (result === undefined) {
-    <div class="move-down row">
-        <button class="col align-self-center" mat-raised-button (click)="onNextQuestion()">Another question</button>
-    </div>
-    }
+    
     @if (result !== undefined && !isInverseQuestion) {
     <div class="move-down row">
         <div class="success">{{ result ? 'Correct!' : 'Incorrect. The correct answer is ' + question.correctAnswer }}</div>
