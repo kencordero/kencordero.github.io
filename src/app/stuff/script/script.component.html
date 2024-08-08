@@ -20,7 +20,7 @@
         }
         @if (result !== undefined) {
             <div class="move-down center row">
-                <div [ngClass]="{'right': result, 'wrong': !result}">{{ result ? 'Correct!' : 'Incorrect. The correct answer is ' + question.correctAnswer }}</div>
+                <div [ngClass]="{'right': result, 'wrong': !result}">{{ result ? 'Correct!' : 'Incorrect.' }}</div>
             </div>
         }
     </div>
