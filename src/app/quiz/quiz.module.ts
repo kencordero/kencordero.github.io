@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { StuffRoutingModule } from './stuff-routing.module';
+import { QuizRoutingModule } from './quiz-routing.module';
 import { CapitalQuizService } from '../services/capital-quiz.service';
 import { ArithmeticComponent } from './arithmetic/arithmetic.component';
 import { ArithmeticService } from '../services/arithmetic.service';
@@ -28,7 +28,7 @@ import { KatakanaComponent } from './katakana/katakana.component';
     ScriptComponent,
   ],
   imports: [
-    StuffRoutingModule,
+    QuizRoutingModule,
     SharedModule
   ],
   providers: [
@@ -37,4 +37,4 @@ import { KatakanaComponent } from './katakana/katakana.component';
     ArithmeticService
   ],
 })
-export class StuffModule { }
+export class QuizModule { }
