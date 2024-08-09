@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Question } from '../stuff/models/question.model';
+import { Question } from '../quiz/models/question.model';
 import { shuffle } from '../shared/utils';
 
 const CHOICE_COUNT = 9;
@@ -14,6 +14,11 @@ export class ScriptService {
     options: [],
     result: undefined
   };
+
+  correctAnswerCount = 0;
+  questionCount = 0;
+  totalQuestionCount = 0;
+
 
   public questionNumber = 0;
   public letters: any[] = [];
@@ -31,9 +36,12 @@ export class ScriptService {
     return this.question;
   }
 
-  checkResponse(option: any): boolean {
+  public checkResponse(option: any): boolean {
+    this.questionCount++;
+
     if (option === this.question.correctAnswer) {
       this.letters.splice(this.questionNumber, 1);
+      this.correctAnswerCount++;
     } else {
       this.questionNumber++; 
     }
@@ -45,9 +53,42 @@ export class ScriptService {
     return option === this.question.correctAnswer;
   }
 
-  setup(characterSet: any[]): void {
+  public setup(characterSet: any[]): void {
     console.log('setup', characterSet);
     this.letters = characterSet;
+    this.totalQuestionCount = this.letters.length;
     shuffle(this.letters);
+
+    this.correctAnswerCount = 0;
+    this.questionCount = 0;
+    this.questionNumber = 0;
+  }
+
+  public getScore(): number {
+    if (this.questionCount === 0) {
+      return 0;
+    }
+
+    return Math.round(this.correctAnswerCount/this.questionCount*100);
+  }
+
+  public getProgress(): number {
+    return Math.trunc(this.correctAnswerCount / this.totalQuestionCount * 100);
+  }
+
+  public getTotalQuestionCount(): number {
+    return this.totalQuestionCount;
+  }
+
+  public getQuestionCount(): number {
+    return this.questionCount;
+  }
+
+  public getCorrectAnswerCount(): number {
+    return this.correctAnswerCount;
+  }
+
+  public getQuestionNumber(): number {
+    return this.questionNumber;
   }
 }

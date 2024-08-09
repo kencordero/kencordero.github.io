@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { StuffRoutingModule } from './stuff-routing.module';
+import { QuizRoutingModule } from './quiz-routing.module';
 import { CapitalQuizService } from '../services/capital-quiz.service';
 import { ArithmeticComponent } from './arithmetic/arithmetic.component';
 import { ArithmeticService } from '../services/arithmetic.service';
@@ -12,6 +12,8 @@ import { FlagQuizService } from '../services/flag-quiz.service';
 import { HiraganaComponent } from './hiragana/hiragana.component';
 import { ScriptComponent } from './script/script.component';
 import { DevanagariComponent } from './devanagari/devanagari.component';
+import { KanjiComponent } from './kanji/kanji.component';
+import { KatakanaComponent } from './katakana/katakana.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,12 @@ import { DevanagariComponent } from './devanagari/devanagari.component';
     FlagQuizComponent,
     HiraganaComponent,
     DevanagariComponent,
+    KanjiComponent,
+    KatakanaComponent,
     ScriptComponent,
   ],
   imports: [
-    StuffRoutingModule,
+    QuizRoutingModule,
     SharedModule
   ],
   providers: [
@@ -33,4 +37,4 @@ import { DevanagariComponent } from './devanagari/devanagari.component';
     ArithmeticService
   ],
 })
-export class StuffModule { }
+export class QuizModule { }

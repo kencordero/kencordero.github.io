@@ -6,6 +6,8 @@ import { SpellingBeeComponent } from './spelling-bee/spelling-bee.component';
 import { FlagQuizComponent } from './flag-quiz/flag-quiz.component';
 import { HiraganaComponent } from './hiragana/hiragana.component';
 import { DevanagariComponent } from './devanagari/devanagari.component';
+import { KatakanaComponent } from './katakana/katakana.component';
+import { KanjiComponent } from './kanji/kanji.component';
 
 const routes: Routes = [
   { path: 'capitals', component: CapitalsComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'spelling-bee', component: SpellingBeeComponent },
   { path: 'flags', component: FlagQuizComponent },
   { path: 'hiragana', component: HiraganaComponent},
+  { path: 'katakana', component: KatakanaComponent},
+  { path: 'kanji', component: KanjiComponent},
   { path: 'devanagari', component: DevanagariComponent}
 ];
 
@@ -20,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class StuffRoutingModule { }
+export class QuizRoutingModule { }

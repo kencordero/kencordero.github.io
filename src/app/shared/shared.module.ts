@@ -9,7 +9,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule as MatCardModule } from '@angular/material/card';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -23,6 +23,7 @@ import { MatCardModule as MatCardModule } from '@angular/material/card';
     MatDividerModule,
     MatIconModule,
     MatMenuModule,
+    MatProgressBarModule,
     MatToolbarModule,
     YouTubePlayerModule,
   ],
@@ -35,6 +36,7 @@ import { MatCardModule as MatCardModule } from '@angular/material/card';
     MatDividerModule,
     MatIconModule,
     MatMenuModule,
+    MatProgressBarModule,
     MatToolbarModule,
     YouTubePlayerModule,
   ]
