@@ -1,0 +1,7 @@
+:host ::ng-deep .option {
+    font-size: 15px !important;
+    margin: 2px;
+    width: 32%;
+    height: 80px;
+}
+
