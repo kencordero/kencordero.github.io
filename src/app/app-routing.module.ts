@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'about', component: AboutComponent },
   { path: 'music', component: MusicComponent },
-  { path: 'stuff', loadChildren: () => import('./stuff/stuff.module').then(m => m.StuffModule) }
+  { path: 'quiz', loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule) }
 ];
 
 @NgModule({

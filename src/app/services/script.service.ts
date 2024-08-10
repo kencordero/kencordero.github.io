@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Question } from '../stuff/models/question.model';
+import { Question } from '../quiz/models/question.model';
 import { shuffle } from '../shared/utils';
 
 const CHOICE_COUNT = 9;
