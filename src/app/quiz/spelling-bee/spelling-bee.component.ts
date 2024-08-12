@@ -14,6 +14,7 @@ export class SpellingBeeComponent implements OnInit {
   private voices: SpeechSynthesisVoice[] = [];
   public response: string | undefined;
   public voices$:  Observable<SpeechSynthesisVoice[]>;
+  public isCorrect: boolean | undefined;
 
   public rightAnswerCount = 0;
   public totalAnswerCount = 0;
@@ -37,8 +38,8 @@ export class SpellingBeeComponent implements OnInit {
 
   onClickNext(): void {
     this.response = '';
+    this.isCorrect = undefined;
     this.word = this.api.getNextWord();
-    console.log('Word: ' + this.word);
     
     this.speak();
   }
@@ -46,7 +47,23 @@ export class SpellingBeeComponent implements OnInit {
   speak(): void {
     const utterance = new SpeechSynthesisUtterance(this.word);
     utterance.rate = 0.8;
-    const voice = this.voices.find(voice => voice.name === 'Google US English');
+    let voiceName: string;
+    switch (this.word) {
+      case "biryani":
+        voiceName = '"Google हिन्दी"';
+        break;
+      case "Jicarilla":
+      case "frijoles":
+      case "telenovelas":
+      case "tostones":
+        voiceName = 'Google español';
+        break;
+      default:
+        voiceName = 'Google US English';
+        break;
+    }
+
+    const voice = this.voices.find(voice => voice.name === voiceName);
     if (voice) {
       utterance.voice = voice
     }
@@ -55,13 +72,21 @@ export class SpellingBeeComponent implements OnInit {
 
   checkResponse(e: any): void {
     if (e.key !== 'Enter') return;
+
     this.totalAnswerCount++;
-    setTimeout(() => this.onClickNext(), 1500);
     if (this.response?.toLowerCase() === this.word?.toLowerCase()) {
-      console.log('Correct!');
+      this.isCorrect = true;
       this.rightAnswerCount++;
+      setTimeout(() => this.onClickNext(), 1500);
     } else {
-      console.log('Incorrect!');
+      this.isCorrect = false;
+      setTimeout(() => this.onClickNext(), 3000);
     }
+  }
+
+  score(): number {
+    if (this.totalAnswerCount === 0) return 0;
+
+    return Math.round(this.rightAnswerCount / this.totalAnswerCount * 100);
   }
 }
