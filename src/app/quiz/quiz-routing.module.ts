@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArithmeticComponent } from './arithmetic/arithmetic.component';
 import { CapitalsComponent } from './capitals/capitals.component';
 import { SpellingBeeComponent } from './spelling-bee/spelling-bee.component';
-import { FlagQuizComponent } from './flag-quiz/flag-quiz.component';
+import { FlagsComponent } from './flags/flags.component';
 import { HiraganaComponent } from './hiragana/hiragana.component';
 import { DevanagariComponent } from './devanagari/devanagari.component';
 import { KatakanaComponent } from './katakana/katakana.component';
@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'capitals', component: CapitalsComponent },
   { path: 'arithmetic', component: ArithmeticComponent },
   { path: 'spelling-bee', component: SpellingBeeComponent },
-  { path: 'flags', component: FlagQuizComponent },
+  { path: 'flags', component: FlagsComponent },
   { path: 'hiragana', component: HiraganaComponent},
   { path: 'katakana', component: KatakanaComponent},
   { path: 'kanji', component: KanjiComponent},
