@@ -15,10 +15,13 @@ export class SpellingBeeComponent implements OnInit {
   public response: string | undefined;
   public voices$:  Observable<SpeechSynthesisVoice[]>;
 
+  public rightAnswerCount = 0;
+  public totalAnswerCount = 0;
+
   constructor(private api: SpellingBeeService) {
     this.voices$ = fromEvent(speechSynthesis, 'voiceschanged')
     .pipe(
-       map(() => speechSynthesis.getVoices().filter(voice => voice.lang.includes('en'))),
+       map(() => speechSynthesis.getVoices().filter(voice => voice.name.includes('Google'))),
        tap((voices) => this.voices = voices),
     );
   }
@@ -26,7 +29,7 @@ export class SpellingBeeComponent implements OnInit {
   ngOnInit(): void {
     this.voices$.subscribe({
       next: () => {
-        console.log('voices', this.voices);
+        console.log('voices', this.voices.map(voice => voice.name));
         this.onClickNext();
       }
     });
@@ -52,11 +55,11 @@ export class SpellingBeeComponent implements OnInit {
 
   checkResponse(e: any): void {
     if (e.key !== 'Enter') return;
-    
-    //this.isCorrect = this.response === this.correctAnswer;
+    this.totalAnswerCount++;
     setTimeout(() => this.onClickNext(), 1500);
     if (this.response?.toLowerCase() === this.word?.toLowerCase()) {
       console.log('Correct!');
+      this.rightAnswerCount++;
     } else {
       console.log('Incorrect!');
     }

@@ -5,6 +5,16 @@ h1 {
 }
 
 .example-card {
+    /* center the card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
     max-width: 400px;
 }
   
+#textInput {
+    width: 100%;
+    font-size: 1.5em;
+
+}
