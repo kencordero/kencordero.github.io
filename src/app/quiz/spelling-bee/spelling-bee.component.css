@@ -18,3 +18,24 @@ h1 {
     font-size: 1.5em;
 
 }
+
+.correct {
+    display: flex;
+    justify-content: center;
+    color: green;
+    padding-top: 10px;
+    font-size: 40px;
+}
+
+.incorrect {
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+
+#correction {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    font-size: 40px;
+}
