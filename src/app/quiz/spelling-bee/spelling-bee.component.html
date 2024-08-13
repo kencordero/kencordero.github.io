@@ -24,11 +24,9 @@
     </div>
 }
         
-@if (isCorrect !== undefined) {
-  @if (isCorrect) {
-    <div id="info" class="correct">Correct!</div>
-  } @else {
-    <div id="info" class="incorrect">The correct answer is</div>
-    <div id="correction" class="incorrect ">{{ word }}</div>
-  }
+@if (isCorrect === true) {
+  <div id="info" class="correct">Correct!</div>
+} @else if (isCorrect === false) {
+  <div id="info" class="incorrect">The correct answer is</div>
+  <div id="correction" class="incorrect ">{{ word }}</div>
 }
