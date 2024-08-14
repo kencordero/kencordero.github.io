@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-top: 80px;
+}
+
+div {
+  text-align: center;
+}
+
+#kanji {
+  font-size: 12em;
+}
+
+#meaning {
+  font-size: 2.5em;
+  margin-top: 80px;
+}
+
+#kunyomi {
+  font-size: 2em;
+  padding: 10px;
+}
+
+#onyomi {
+  font-size: 2em;
+  padding: 10px;
+}
+
+button {
+    width: 25%;
+}

@@ -1,0 +1,8 @@
+<div class="container">
+  <div id="kanji">{{ letters[currentLetter].key }}</div><br>
+  <div id="meaning">{{ letters[currentLetter].value }}</div><br>
+  <div id="kunyomi">{{ letters[currentLetter].kunyomi }}</div><br>
+  <div id="onyomi">{{ letters[currentLetter].onyomi }}</div><br>
+
+  <button (click)="onNextLetter()">NEXT</button>
+</div>
