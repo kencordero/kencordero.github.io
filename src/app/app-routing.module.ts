@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'about', component: AboutComponent },
   { path: 'music', component: MusicComponent },
-  { path: 'quiz', loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule) }
+  { path: 'quiz', loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule) },
+  { path: 'practice/kanji', loadComponent: () => import('./practice/kanji/kanji.component').then(m => m.KanjiComponent) },
 ];
 
 @NgModule({
