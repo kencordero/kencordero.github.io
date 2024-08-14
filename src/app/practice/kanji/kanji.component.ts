@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { kanji } from '../../shared/data-sets/kanji';
 import { shuffle } from 'lodash';
 import { MatCardModule } from '@angular/material/card';
+import { TtsService } from 'src/app/services/tts.service';
 
 @Component({
   selector: 'app-kanji',
@@ -14,11 +15,15 @@ export class KanjiComponent {
   public letters: any[];
   public currentLetter = 0;
 
-  constructor() {
+  constructor(private ttsService: TtsService) {
     this.letters = shuffle(kanji);
   }
 
   onNextLetter() {
     this.currentLetter++;
+  }
+
+  onSpeak(word: string) {
+    this.ttsService.speak(word, "Google 日本語");
   }
 }
