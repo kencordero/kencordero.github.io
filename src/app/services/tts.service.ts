@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { fromEvent, map, Observable, tap } from 'rxjs';
+import { fromEvent, map, Observable, shareReplay, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +11,20 @@ export class TtsService {
   constructor() {
     this.voices$ = fromEvent(speechSynthesis, 'voiceschanged')
     .pipe(
-      map(() => speechSynthesis.getVoices().filter(voice => voice.name.includes('Google'))),
+      map(() => speechSynthesis.getVoices()),
       tap((voices) => this.voices = voices),
+      shareReplay(1)
     );
 
     this.voices$.subscribe({
       next: () => {
-        console.log('voices', this.voices.map(voice => voice.name));
+        console.log('voices', this.voices);
       }
     });
+  }
+
+  getVoices(): SpeechSynthesisVoice[] {
+    return this.voices;
   }
 
   speak(text: string, voiceName?: string): void {
