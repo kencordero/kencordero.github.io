@@ -1,0 +1,5 @@
+@for (voice of voices; track voice) {
+    <li>{{ voice.name }} ({{ voice.lang}})</li>
+    } @empty {
+    <li>There are no items.</li>
+    }
