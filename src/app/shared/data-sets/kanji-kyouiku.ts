@@ -1,4 +1,4 @@
-{
+export const kanju = {
     "一": {
         "strokes": 1,
         "grade": 1,

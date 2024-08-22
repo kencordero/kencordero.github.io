@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'music', component: MusicComponent },
   { path: 'quiz', loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule) },
-  { path: 'practice/kanji', loadComponent: () => import('./practice/kanji/kanji.component').then(m => m.KanjiComponent) },
+  // { path: 'practice/kanji', loadComponent: () => import('./practice/kanji/kanji.component').then(m => m.KanjiComponent) },
+  { path: 'practice/jouyou-kanji', loadComponent: () => import('./practice/jouyou-kanji/jouyou-kanji.component').then(m => m.JouyouKanjiComponent) },
   { path: 'voices', loadComponent: () => import('./voices/voices.component').then(m => m.VoicesComponent) }
 ];
 
