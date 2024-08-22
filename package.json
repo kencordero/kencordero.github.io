@@ -27,11 +27,12 @@
     "lodash": "^4.17.21",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",
+    "wanakana": "^5.3.1",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.2.0",
-    "@angular/cli": "^18.2.0",
+    "@angular-devkit/build-angular": "^18.2.1",
+    "@angular/cli": "^18.2.1",
     "@angular/compiler-cli": "^18.2.0",
     "@types/jasmine": "~4.6.1",
     "@types/lodash": "^4.14.200",

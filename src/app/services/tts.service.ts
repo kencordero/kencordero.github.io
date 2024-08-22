@@ -15,12 +15,6 @@ export class TtsService {
       tap((voices) => this.voices = voices),
       shareReplay(1)
     );
-
-    this.voices$.subscribe({
-      next: () => {
-        console.log('voices', this.voices);
-      }
-    });
   }
 
   getVoices(): SpeechSynthesisVoice[] {
