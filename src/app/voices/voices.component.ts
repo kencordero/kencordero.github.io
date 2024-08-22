@@ -10,14 +10,11 @@ import { TtsService } from '../services/tts.service';
 })
 export class VoicesComponent implements OnInit {
   public voices: SpeechSynthesisVoice[] = [];
+  
   constructor(private tts: TtsService) {}
 
-  ngOnInit() {
-    this.getVoices();
-  }
-
-  getVoices() {
-    return this.tts.voices$.subscribe({
+  ngOnInit(): void {
+    this.tts.voices$.subscribe({
       next: (voices) => {
         this.voices = voices;
       }
