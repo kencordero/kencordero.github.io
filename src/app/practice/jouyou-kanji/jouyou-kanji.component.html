@@ -20,8 +20,8 @@
 <div id="flashcard">
   <div id="kanji">{{ currentLetter.kanji }}</div><br>
   <div id="meaning">{{ currentLetter.meanings[0] }}</div><br>
-  <div (click)="onSpeak(currentLetter.kunyomi[0])" id="kunyomi">{{ currentLetter.kunyomi[0] }}</div><br>
-  <div (click)="onSpeak(currentLetter.onyomi[0])" id="onyomi">{{ currentLetter.onyomi[0] | katakana }}</div><br>
+  <div (click)="onSpeak(currentLetter.kunyomi[0])" id="kunyomi" matTooltip="{{ currentLetter.kunyomi[0] | romaji }}">{{ currentLetter.kunyomi[0] }}</div><br>
+  <div (click)="onSpeak(currentLetter.onyomi[0])" id="onyomi" matTooltip="{{ currentLetter.onyomi[0] | romaji }}">{{ currentLetter.onyomi[0] | katakana }}</div><br>
 
   <button (click)="onNextLetter()">NEXT</button>
 </div>

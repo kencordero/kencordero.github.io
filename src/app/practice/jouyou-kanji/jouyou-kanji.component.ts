@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { shuffle } from 'lodash';
 import { KatakanaPipe } from 'src/app/pipes/katakana.pipe';
+import { RomajiPipe } from 'src/app/pipes/romaji.pipe';
 import { TtsService } from 'src/app/services/tts.service';
 import { kanji } from 'src/app/shared/data-sets/kanji-jouyou';
 
 @Component({
   selector: 'app-jouyou-kanji',
   standalone: true,
-  imports: [MatButtonToggleModule, FormsModule, KatakanaPipe],
+  imports: [MatButtonToggleModule, FormsModule, KatakanaPipe, RomajiPipe, MatTooltipModule],
   templateUrl: './jouyou-kanji.component.html',
   styleUrl: './jouyou-kanji.component.css'
 })
@@ -36,13 +38,12 @@ export class JouyouKanjiComponent {
 
     this.letters = shuffle(arr);
     this.filteredLetters = this.letters.slice();
-    
-    console.log('letters', this.filteredLetters);
   }
 
   onNextLetter() {
     this.currentLetterIndex++;
     this.currentLetter = this.filteredLetters[this.currentLetterIndex];
+    console.log(this.currentLetter);
   }
 
   onSpeak(word: string) {
