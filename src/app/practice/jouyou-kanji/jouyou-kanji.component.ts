@@ -51,7 +51,7 @@ export class JouyouKanjiComponent {
   }
 
   onGradeChange(event: any): void {
-    shuffle(this.letters);
+    this.letters = shuffle(this.letters);
     this.filteredLetters = this.letters.filter((letter) => {
       return event.value == letter.grade;
     });
