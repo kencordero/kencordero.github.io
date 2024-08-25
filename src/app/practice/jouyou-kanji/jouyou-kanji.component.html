@@ -13,16 +13,32 @@
     <mat-button-toggle value="4">四</mat-button-toggle>
     <mat-button-toggle value="5">五</mat-button-toggle>
     <mat-button-toggle value="6">六</mat-button-toggle>
+    <!-- There is no 7 -->
     <mat-button-toggle value="8">八</mat-button-toggle>
   </mat-button-toggle-group>
 </div>
 @if (currentLetter) {
 <div id="flashcard">
-  <div id="kanji">{{ currentLetter.kanji }}</div><br>
-  <div id="meaning">{{ currentLetter.meanings[0] }}</div><br>
-  <div (click)="onSpeak(currentLetter.kunyomi[0])" id="kunyomi" matTooltip="{{ currentLetter.kunyomi[0] | romaji }}">{{ currentLetter.kunyomi[0] }}</div><br>
-  <div (click)="onSpeak(currentLetter.onyomi[0])" id="onyomi" matTooltip="{{ currentLetter.onyomi[0] | romaji }}">{{ currentLetter.onyomi[0] | katakana }}</div><br>
-
+  <div id="kanji">
+    {{ currentLetter.kanji }}
+  </div>
+  <br>
+  <div id="meaning">
+    {{ currentLetter.meanings[0] }}
+  </div>
+  <br>
+  <div id="kunyomi" 
+    (click)="onSpeak(currentLetter.kunyomi[0])" 
+    matTooltip="{{ currentLetter.kunyomi[0] | romaji }}">
+      {{ currentLetter.kunyomi[0] }}
+  </div>
+  <br>
+  <div id="onyomi" 
+    (click)="onSpeak(currentLetter.onyomi[0])" 
+    matTooltip="{{ currentLetter.onyomi[0] | romaji }}">
+      {{ currentLetter.onyomi[0] | katakana }}
+  </div>
+  <br>
   <button (click)="onNextLetter()">NEXT</button>
 </div>
 }
