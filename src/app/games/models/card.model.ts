@@ -18,4 +18,49 @@ export class Card {
             return parseInt(this.rank); // Number cards are worth their face value
         }
     }
+
+    private toString(): string {
+        return `${this.rank}${this.suit}`;
+    }
+
+    get image(): string {
+        // Returns the image path for the card
+        let rankToken: string;
+        switch (this.rank) {
+            case 'A': 
+                rankToken = 'ace';
+            break;
+            case 'K':
+                rankToken = 'king';
+            break;
+            case 'Q':
+                rankToken = 'queen';
+            break;
+            case 'J':
+                rankToken = 'jack';
+            break;
+            default:
+                rankToken = this.rank;
+            break;
+        }
+        let suitToken: string;
+        switch (this.suit) {
+            case '♥️':
+                suitToken = 'hearts';
+            break;
+            case '♦️':
+                suitToken = 'diamonds';
+            break;
+            case '♣️':
+                suitToken = 'clubs';
+            break;
+            case '♠️':
+                suitToken = 'spades';
+            break;
+            default:
+                suitToken = '';
+            break;
+        }
+        return `${rankToken}_of_${suitToken}.svg`;
+    }
 }

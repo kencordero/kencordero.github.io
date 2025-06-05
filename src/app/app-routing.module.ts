@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'about', component: AboutComponent },
   { path: 'music', component: MusicComponent },
-  { path: 'games/samich', loadComponent: () => import('./games/samich/samich.component').then(m => m.SamichComponent) },
+  { path: 'games/poker', loadComponent: () => import('./games/poker/poker.component').then(m => m.PokerComponent) },
   { path: 'quiz', loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule) },
   // { path: 'practice/kanji', loadComponent: () => import('./practice/kanji/kanji.component').then(m => m.KanjiComponent) },
   { path: 'practice/jouyou-kanji', loadComponent: () => import('./practice/jouyou-kanji/jouyou-kanji.component').then(m => m.JouyouKanjiComponent) },

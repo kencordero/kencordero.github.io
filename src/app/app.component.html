@@ -5,7 +5,13 @@
     <!-- <span>Ken, the Ken</span> -->
     <span class="spacer"></span>
     <button mat-button routerLink="/music" routerLinkActive="active-link"><mat-icon>music_video</mat-icon>Music</button>
-    <div routerLinkActive="activeLink">
+    <div routerLinkActive="active-link">
+        <button mat-button [matMenuTriggerFor]="games"><mat-icon>games</mat-icon>Games</button>
+        <mat-menu #games>
+            <button mat-menu-item class="dropdown-item" routerLink="/games/poker">Poker</button>
+        </mat-menu>
+    </div>
+    <div routerLinkActive="active-link">
         <button mat-button [matMenuTriggerFor]="practice"><mat-icon>pageview</mat-icon>Practice</button>
         <mat-menu #practice>
             <!-- <button mat-menu-item class="dropdown-item" routerLink="/practice/kanji">Kanji</button> -->

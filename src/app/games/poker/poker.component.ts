@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
 import { Card } from '../models/card.model';
+import { MatMenu } from '@angular/material/menu';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-samich',
+  selector: 'app-poker',
   standalone: true,
-  imports: [],
-  templateUrl: './samich.component.html',
-  styleUrl: './samich.component.css'
+  imports: [MatMenu, CommonModule],
+  templateUrl: './poker.component.html',
+  styleUrl: './poker.component.css'
 })
-export class SamichComponent {
+export class PokerComponent {
   deck: Card[] = [];
   playerHand: Card[] = [];
+  discardIndex: number = 0;
+  discardPile: Card[] = [];
   computerHand: Card[] = [];
   playerScore: number = 0;
   computerScore: number = 0;
@@ -53,9 +57,39 @@ export class SamichComponent {
     }
   }
 
+  discardCard(card: Card): void {
+    const index = this.playerHand.indexOf(card);
+    this.discardIndex = index;
+    if (index > -1) {
+      this.playerHand.splice(index, 1);
+      this.discardPile.push(card);
+    }
+  }
+
+  drawFromDeck(): void {
+    if (this.deck.length > 0) {
+      const drawnCard = this.deck.pop();
+      if (drawnCard) {
+        this.playerHand.splice(this.discardIndex, 0, drawnCard).push(drawnCard);
+      }
+    }
+  }
+
+  animateCard(card: Card): void {
+    // make card flip
+    const cardElement = document.querySelector(`.card-${card.rank}-${card.suit}`);
+    if (cardElement) {
+      cardElement.classList.add('flip');
+      setTimeout(() => {
+        cardElement.classList.remove('flip');
+      }, 1000); // Adjust the duration as needed
+    }
+  }
+
   calculateHandScore(hand: Card[]): number {
     let score = 0;
     for (const card of hand) {
+      // add value of card to score
       if (card.rank === 'A') {
         score += 11; // Ace is worth 11 points
       } else if (['K', 'Q', 'J'].includes(card.rank)) {
