@@ -15,10 +15,7 @@ export class PokerComponent {
   playerHand: Card[] = [];
   discardIndex: number = 0;
   discardPile: Card[] = [];
-  computerHand: Card[] = [];
   playerScore: number = 0;
-  computerScore: number = 0;
-  gameOver: boolean = false;
   
   constructor() {
     this.setupGame();
@@ -26,10 +23,8 @@ export class PokerComponent {
 
   dealCards(): void {
     this.playerHand = [];
-    this.computerHand = [];
     for (let i = 0; i < 5; i++) {
       this.playerHand.push(this.deck.pop()!);
-      this.computerHand.push(this.deck.pop()!);
     }
   }
 
@@ -75,31 +70,56 @@ export class PokerComponent {
     }
   }
 
-  animateCard(card: Card): void {
-    // make card flip
-    const cardElement = document.querySelector(`.card-${card.rank}-${card.suit}`);
-    if (cardElement) {
-      cardElement.classList.add('flip');
-      setTimeout(() => {
-        cardElement.classList.remove('flip');
-      }, 1000); // Adjust the duration as needed
+  identifyPokerHand(hand: Card[]): string {
+    let tempHand = [...hand]; // Create a copy of the hand to avoid modifying the original
+    // identify royal flush, straight flush, four of a kind, full house, flush, straight, three of a kind, two pair, one pair, high card
+    if (tempHand.length !== 5) {
+      throw new Error('A poker hand must consist of exactly 5 cards.');
+    }
+    // Sort the hand by rank
+    tempHand.sort((a, b) => {
+      const rankOrder = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+      return rankOrder.indexOf(a.rank) - rankOrder.indexOf(b.rank);
+    });
+    // Check for flush (all cards of the same suit)
+    const isFlush = tempHand.every(card => card.suit === tempHand[0].suit);
+    // Check for straight (consecutive ranks)
+    const isStraight = tempHand.every((card, index) => {
+      if (index === 0) return true; // First card, no previous card to compare
+      const previousCard = tempHand[index - 1];
+      const rankOrder = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+      // catch the case where Ace can be low (A, 2, 3, 4, 5)
+      if (card.rank === 'A' && previousCard.rank === '5') {
+        return true; // Ace can be low in this case   
+      } 
+      return rankOrder.indexOf(card.rank) === rankOrder.indexOf(previousCard.rank) + 1;
+    });
+    // Check for pairs, three of a kind, four of a kind
+    const rankCount: { [key: string]: number } = {};
+    tempHand.forEach(card => {
+      rankCount[card.rank] = (rankCount[card.rank] || 0) + 1;
+    });
+    const counts = Object.values(rankCount).sort((a, b) => b - a); // Sort counts in descending order
+    if (isFlush && isStraight && tempHand[0].rank === '10' && tempHand[4].rank === 'A') {
+      return 'Royal Flush';
+    } else if (isFlush && isStraight) {
+      return 'Straight Flush';
+    } else if (counts[0] === 4) {
+      return 'Four of a Kind';
+    } else if (counts[0] === 3 && counts[1] === 2) {
+      return 'Full House';
+    } else if (isFlush) {
+      return 'Flush';
+    } else if (isStraight) {
+      return 'Straight';
+    } else if (counts[0] === 3) {
+      return 'Three of a Kind';
+    } else if (counts[0] === 2 && counts[1] === 2) {
+      return 'Two Pair';
+    } else if (counts[0] === 2) {
+      return 'Pair';
+    } else {
+      return 'High Card';
     }
   }
-
-  calculateHandScore(hand: Card[]): number {
-    let score = 0;
-    for (const card of hand) {
-      // add value of card to score
-      if (card.rank === 'A') {
-        score += 11; // Ace is worth 11 points
-      } else if (['K', 'Q', 'J'].includes(card.rank)) {
-        score += 10; // Face cards are worth 10 points
-      } else {
-        score += parseInt(card.rank); // Number cards are worth their face value
-      }
-    }
-    return score;
-    
-  }
-
 }
