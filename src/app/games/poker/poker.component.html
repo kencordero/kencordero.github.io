@@ -1,0 +1,14 @@
+<div class="game-container">
+    <h1>Poker</h1>
+    <div class="card-table">
+        @for (card of playerHand; track card) {
+          <img class="card"
+          src="assets/cards/{{ card.image }}"
+          (click)="discardCard(card); drawFromDeck()">
+        }
+    </div>
+    <div class="controls">
+        <button class="button"
+            (click)="setupGame()">Shuffle</button>
+    </div>
+</div>
