@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { kanji } from '../../shared/data-sets/kanji';
-import { shuffle } from 'lodash';
 import { MatCardModule } from '@angular/material/card';
 import { TtsService } from 'src/app/services/tts.service';
+import { shuffle } from 'src/app/shared/utils';
 
 @Component({
   selector: 'app-kanji',

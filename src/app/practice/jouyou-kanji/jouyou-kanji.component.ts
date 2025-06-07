@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { shuffle } from 'lodash';
 import { KatakanaPipe } from 'src/app/pipes/katakana.pipe';
 import { RomajiPipe } from 'src/app/pipes/romaji.pipe';
 import { TtsService } from 'src/app/services/tts.service';
 import { kanji } from 'src/app/shared/data-sets/kanji-jouyou';
+import { shuffle } from 'src/app/shared/utils';
 
 @Component({
     selector: 'app-jouyou-kanji',
