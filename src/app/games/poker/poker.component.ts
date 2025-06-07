@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Card } from '../models/card.model';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'app-poker',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './poker.component.html',
     styleUrl: './poker.component.css'
 })
