@@ -3,9 +3,10 @@ import { FlagQuizService } from '../../services/flag-quiz.service';
 import { FlagQuestion } from '../models/flag-question.model';
 
 @Component({
-  selector: 'app-flags',
-  templateUrl: './flags.component.html',
-  styleUrls: ['./flags.component.css']
+    selector: 'app-flags',
+    templateUrl: './flags.component.html',
+    styleUrls: ['./flags.component.css'],
+    standalone: false
 })
 export class FlagsComponent implements OnInit {
   isInverseQuestion = true;

@@ -4,9 +4,10 @@ import { videos } from './videos';
 
 
 @Component({
-  selector: 'app-music',
-  templateUrl: './music.component.html',
-  styleUrls: ['./music.component.css']
+    selector: 'app-music',
+    templateUrl: './music.component.html',
+    styleUrls: ['./music.component.css'],
+    standalone: false
 })
 export class MusicComponent implements OnInit {
   videos: any[] = videos;

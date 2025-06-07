@@ -3,9 +3,10 @@ import SpellingBeeService from '../../services/spelling-bee.service';
 import { fromEvent, map, Observable, tap } from 'rxjs';
 
 @Component({
-  selector: 'app-spelling-bee',
-  templateUrl: './spelling-bee.component.html',
-  styleUrls: ['./spelling-bee.component.css']
+    selector: 'app-spelling-bee',
+    templateUrl: './spelling-bee.component.html',
+    styleUrls: ['./spelling-bee.component.css'],
+    standalone: false
 })
 export class SpellingBeeComponent implements OnInit {
   public word?: string;

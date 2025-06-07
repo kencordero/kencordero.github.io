@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { Card } from '../models/card.model';
-import { MatMenu } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-poker',
-  standalone: true,
-  imports: [MatMenu, CommonModule],
-  templateUrl: './poker.component.html',
-  styleUrl: './poker.component.css'
+    selector: 'app-poker',
+    imports: [CommonModule],
+    templateUrl: './poker.component.html',
+    styleUrl: './poker.component.css'
 })
 export class PokerComponent {
   deck: Card[] = [];
