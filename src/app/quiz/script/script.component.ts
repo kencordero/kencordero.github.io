@@ -3,9 +3,10 @@ import { Question } from '../models/question.model';
 import { ScriptService } from 'src/app/services/script.service';
 
 @Component({
-  selector: 'app-script',
-  templateUrl: './script.component.html',
-  styleUrl: './script.component.css'
+    selector: 'app-script',
+    templateUrl: './script.component.html',
+    styleUrl: './script.component.css',
+    standalone: false
 })
 export class ScriptComponent implements OnInit, OnChanges {
   @Input() characterSet: any[] = []; 

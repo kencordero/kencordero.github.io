@@ -3,9 +3,10 @@ import {Component, Input, OnInit} from '@angular/core';
 let apiLoaded = false;
 
 @Component({
-  selector: 'video-player',
-  templateUrl: './video-player.component.html',
-  styleUrls: ['./video-player.component.css']
+    selector: 'video-player',
+    templateUrl: './video-player.component.html',
+    styleUrls: ['./video-player.component.css'],
+    standalone: false
 })
 export class VideoPlayerComponent implements OnInit {
   @Input() videoId: string = '';

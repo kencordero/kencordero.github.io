@@ -9,11 +9,10 @@ import { TtsService } from 'src/app/services/tts.service';
 import { kanji } from 'src/app/shared/data-sets/kanji-jouyou';
 
 @Component({
-  selector: 'app-jouyou-kanji',
-  standalone: true,
-  imports: [MatButtonToggleModule, FormsModule, KatakanaPipe, RomajiPipe, MatTooltipModule],
-  templateUrl: './jouyou-kanji.component.html',
-  styleUrl: './jouyou-kanji.component.css'
+    selector: 'app-jouyou-kanji',
+    imports: [MatButtonToggleModule, FormsModule, KatakanaPipe, RomajiPipe, MatTooltipModule],
+    templateUrl: './jouyou-kanji.component.html',
+    styleUrl: './jouyou-kanji.component.css'
 })
 export class JouyouKanjiComponent {
   public letters: any[];

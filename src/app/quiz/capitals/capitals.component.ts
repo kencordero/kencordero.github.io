@@ -5,9 +5,10 @@ import { CapitalQuizService } from '../../services/capital-quiz.service';
 const CHOICE_COUNT = 9;
 
 @Component({
-  selector: 'app-capitals',
-  templateUrl: './capitals.component.html',
-  styleUrls: ['./capitals.component.css']
+    selector: 'app-capitals',
+    templateUrl: './capitals.component.html',
+    styleUrls: ['./capitals.component.css'],
+    standalone: false
 })
 export class CapitalsComponent implements OnInit {
   question: Question;

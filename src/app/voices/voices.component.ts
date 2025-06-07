@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { TtsService } from '../services/tts.service';
 
 @Component({
-  selector: 'app-voices',
-  standalone: true,
-  imports: [],
-  templateUrl: './voices.component.html',
-  styleUrl: './voices.component.css'
+    selector: 'app-voices',
+    imports: [],
+    templateUrl: './voices.component.html',
+    styleUrl: './voices.component.css'
 })
 export class VoicesComponent implements OnInit {
   public voices: SpeechSynthesisVoice[] = [];
