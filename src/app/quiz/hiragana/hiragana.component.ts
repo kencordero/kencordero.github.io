@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { hiragana } from 'src/app/shared/data-sets/hiragana';
 @Component({
-    selector: 'app-hiragana',
+    selector: 'ken-hiragana',
     templateUrl: './hiragana.component.html',
     styleUrl: './hiragana.component.css',
     standalone: false

@@ -5,7 +5,7 @@ import { CapitalQuizService } from '../../services/capital-quiz.service';
 const CHOICE_COUNT = 9;
 
 @Component({
-    selector: 'app-capitals',
+    selector: 'ken-capitals',
     templateUrl: './capitals.component.html',
     styleUrls: ['./capitals.component.css'],
     standalone: false

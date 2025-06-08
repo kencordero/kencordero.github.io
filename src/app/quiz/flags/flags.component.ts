@@ -3,7 +3,7 @@ import { FlagQuizService } from '../../services/flag-quiz.service';
 import { FlagQuestion } from '../models/flag-question.model';
 
 @Component({
-    selector: 'app-flags',
+    selector: 'ken-flags',
     templateUrl: './flags.component.html',
     styleUrls: ['./flags.component.css'],
     standalone: false

@@ -4,7 +4,7 @@ import { videos } from './videos';
 
 
 @Component({
-    selector: 'app-music',
+    selector: 'ken-music',
     templateUrl: './music.component.html',
     styleUrls: ['./music.component.css'],
     standalone: false

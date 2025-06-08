@@ -9,7 +9,7 @@ import { kanji } from 'src/app/shared/data-sets/kanji-jouyou';
 import { shuffle } from 'src/app/shared/utils';
 
 @Component({
-    selector: 'app-jouyou-kanji',
+    selector: 'ken-jouyou-kanji',
     imports: [MatButtonToggleModule, FormsModule, KatakanaPipe, RomajiPipe, MatTooltipModule],
     templateUrl: './jouyou-kanji.component.html',
     styleUrl: './jouyou-kanji.component.css'

@@ -5,7 +5,7 @@ import { TtsService } from 'src/app/services/tts.service';
 import { shuffle } from 'src/app/shared/utils';
 
 @Component({
-  selector: 'app-kanji',
+  selector: 'ken-kanji',
   standalone: true,
   imports: [MatCardModule],
   templateUrl: './kanji.component.html',
