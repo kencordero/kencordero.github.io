@@ -11,6 +11,22 @@ export class Card {
         return `${this.rank}${this.suit}`;
     }
 
+    get value(): number {
+        // Returns the value of the card for Blackjack
+        switch (this.rank) {
+            case 'A':
+                return 14; 
+            case 'K':
+                return 13;
+            case 'Q':
+                return 12;
+            case 'J':
+                return 11;
+            default:
+                return parseInt(this.rank);
+        }
+    }        
+
     get image(): string {
         // Returns the image path for the card
         let rankToken: string;

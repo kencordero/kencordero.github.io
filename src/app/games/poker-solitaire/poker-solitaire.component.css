@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.game-container {
+    width: 80%;
+    max-width: 100%;
+    max-height: 90vh;
+    text-align: center;
+}
+.card-table {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+.card {
+    width: 80px;
+    height: 14vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.1);
+}
+.controls {
+    margin-top: 20px;
+}
+.button {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.button:hover {
+    background-color: #c0392b;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+    max-height: 50vh;
+    max-width: 500px;
+}
+/* show deck to the left of the grid */
+/* deck should be the same size as the cards in the grid */
+.deck {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-40%);
+    width: 20px;
+    height: 10vh;
+    background-color: white;
+}
