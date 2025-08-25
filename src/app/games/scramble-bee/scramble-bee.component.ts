@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ken-scramble-bee',
-  imports: [DecimalPipe, UpperCasePipe],
+  imports: [UpperCasePipe],
   templateUrl: './scramble-bee.component.html',
   styleUrl: './scramble-bee.component.css'
 })
@@ -39,7 +39,7 @@ export class ScrambleBeeComponent {
       const unique = this.getUniqueLetters(scrambled);
       // get letters from the set
       this.scrambledWord = Array.from(unique);
-      console.log(`Word: ${this.currentWord}, Scrambled: ${scrambled}, Unique Letters: ${[...unique].join(', ')}`);
+      console.log(`Word: ${this.currentWord}`);
 
   }
 

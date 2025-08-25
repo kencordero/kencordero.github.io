@@ -1,0 +1,12 @@
+.letter {
+    font-size: 2em;
+    font-weight: bold;
+    padding-top: 15px;
+    margin: 0 5px;
+    /* leave vertical line gap between previous element */
+    display: inline-block;
+}
+
+.yellow {
+    color: #FFAF00;
+}   

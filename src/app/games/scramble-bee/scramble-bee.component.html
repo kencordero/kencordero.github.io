@@ -1,10 +1,8 @@
-<h1>Total words loaded: {{ words.length | number }}</h1>
-<h1>Words with exactly 7 unique letters: {{ filterWordsByUniqueLetters(7).length | number }}</h1>
 <button (click)="getRandomWord()">Random word</button>
 <br />
 
 @if (scrambledWord) {
-    @for (letter of scrambledWord; track letter) {
-        <span class="letter">{{ letter | uppercase }} </span>
+    @for (letter of scrambledWord; track $index) {
+        <span [class]="{'yellow': $index === 3}"  class="letter">{{ letter | uppercase }} </span>
     }
 }
