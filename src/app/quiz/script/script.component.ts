@@ -3,7 +3,7 @@ import { Question } from '../models/question.model';
 import { ScriptService } from 'src/app/services/script.service';
 
 @Component({
-    selector: 'app-script',
+    selector: 'ken-script',
     templateUrl: './script.component.html',
     styleUrl: './script.component.css',
     standalone: false

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-arithmetic',
+    selector: 'ken-arithmetic',
     templateUrl: './arithmetic.component.html',
     styleUrls: ['./arithmetic.component.css'],
     standalone: false

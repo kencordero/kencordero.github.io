@@ -1,0 +1,30 @@
+<button (click)="getRandomWord()">New word</button>
+<br />
+
+@if (scrambledWord) {
+    @for (letter of scrambledWord; track $index) {
+        <span [class]="{'yellow': $index === 3}"  class="letter">{{ letter | uppercase }} </span>
+    }
+    <br /><br />
+    <!-- input field and submit button -->
+    <!-- when enter button is pressed in input field, button is clicked -->
+    
+    
+    <p [class]="{'red': !message.includes('Pangram') && !message.includes('Good')}">{{ message }}</p>   
+     
+    <input mat-input (keydown.enter)="testWord()" [(ngModel)]="userInput" type="text" placeholder="Your answer here" />
+    <button (click)="testWord()" type="submit">Submit</button>
+    <!--Show score -->
+    <p>Score: {{ score }}</p>
+    <br />
+
+    <!-- show list of accepted words in a bulleted list-->
+     
+    <ul>
+        @for (word of acceptedWords; track word) {
+            <li [class]="{'bold': isPangram(word)}">{{ word }}</li>
+        }
+    </ul>
+    
+    
+}

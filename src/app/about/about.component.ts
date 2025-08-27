@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-about',
+    selector: 'ken-about',
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.css'],
     standalone: false

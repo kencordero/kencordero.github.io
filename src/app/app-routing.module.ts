@@ -9,6 +9,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'music', component: MusicComponent },
   { path: 'games/poker', loadComponent: () => import('./games/poker/poker.component').then(m => m.PokerComponent) },
+  { path: 'games/poker-solitaire', loadComponent: () => import('./games/poker-solitaire/poker-solitaire.component').then(m => m.PokerSolitaireComponent) },
+  { path: 'games/scramble-bee', loadComponent: () => import('./games/scramble-bee/scramble-bee.component').then(m => m.ScrambleBeeComponent) },
   { path: 'quiz', loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule) },
   // { path: 'practice/kanji', loadComponent: () => import('./practice/kanji/kanji.component').then(m => m.KanjiComponent) },
   { path: 'practice/jouyou-kanji', loadComponent: () => import('./practice/jouyou-kanji/jouyou-kanji.component').then(m => m.JouyouKanjiComponent) },

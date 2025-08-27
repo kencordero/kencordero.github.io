@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TtsService } from '../services/tts.service';
 
 @Component({
-    selector: 'app-voices',
+    selector: 'ken-voices',
     imports: [],
     templateUrl: './voices.component.html',
     styleUrl: './voices.component.css'

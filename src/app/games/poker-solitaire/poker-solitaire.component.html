@@ -1,0 +1,19 @@
+<div class="game-container">
+    <h1>Poker Solitaire</h1>
+    <div class="card-table">
+        <!-- create 5x5 grid for placing cards -->
+        <div class="card-grid">
+            @for (card of playerHand; track card) {
+             <img class="card"
+                src="assets/cards/{{ card.image }}"
+                (click)="discardCard(card); drawFromDeck()">
+            }
+        </div>
+        <!-- show deck to the right of the grid-->
+        <div class="deck card" (click)="drawFromDeck()">
+            <img src="assets/cards/card_back_blue.svg" alt="Deck">
+            <p>Deck ({{ deck.length }} cards left)</p>
+    </div>
+    <div class="controls">
+    </div>
+</div>

@@ -3,7 +3,7 @@ import { Card } from '../models/card.model';
 
 
 @Component({
-    selector: 'app-poker',
+    selector: 'ken-poker',
     imports: [],
     templateUrl: './poker.component.html',
     styleUrl: './poker.component.css'

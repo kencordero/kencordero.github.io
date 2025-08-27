@@ -1,0 +1,1 @@
+function f(e){let n=e.length,t;for(;n!=0;)t=Math.floor(Math.random()*n),n--,[e[n],e[t]]=[e[t],e[n]];return e}function l(e,n){return f(e.slice()).slice(0,n)}function o(e,n){for(let t=0;t<e.length;t++)if(n(e[t]))return e[t]}export{f as a,l as b,o as c};
