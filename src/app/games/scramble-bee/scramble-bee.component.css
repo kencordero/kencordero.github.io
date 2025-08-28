@@ -3,6 +3,9 @@
     font-weight: bold;
     padding-top: 15px;
     margin: 0 5px;
+    /* use fixed width for each letter */
+    width: .7em;
+    text-align: center;
     /* leave vertical line gap between previous element */
     display: inline-block;
 }

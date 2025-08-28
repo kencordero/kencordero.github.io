@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'ken-scramble-bee',
-  imports: [FormsModule, UpperCasePipe],
+  imports: [DecimalPipe, FormsModule, UpperCasePipe],
   templateUrl: './scramble-bee.component.html',
   styleUrl: './scramble-bee.component.css'
 })
@@ -17,8 +17,12 @@ export class ScrambleBeeComponent {
   public acceptedWordSet: Set<string> = new Set<string>();
   public acceptedWords: string[] = [];
   public score: number = 0;
+  public totalWords: string[] = [];
+  public maxScore?: number;
+  public isDone: boolean = false;
 
   constructor() {
+    console.log('isDone initialized to false');
     this.loadWordList();
   }
 
@@ -26,8 +30,10 @@ export class ScrambleBeeComponent {
     fetch('assets/words_alpha.txt')
       .then(response => response.text())
       .then(text => {
-        this.words = text.split('\n').map(word => word.trim()).filter(word => word.length > 3 && word.length < 20);
-        this.words = this.filterWordsWithNoS();
+        this.words = text.split('\n').map(word => word.trim()).filter(word => 
+          word.length > 3 && 
+          word.length < 20 &&
+          !word.includes('s'));
       })
       .catch(error => console.error('Error loading word list:', error));
   }
@@ -38,6 +44,10 @@ export class ScrambleBeeComponent {
     this.acceptedWordSet.clear();
     this.acceptedWords = [];
     this.score = 0;
+    this.totalWords = [];
+    this.maxScore = undefined;
+    this.isDone = false;
+    console.log('isDone set to false');
   }
 
   public getRandomWord(): void {
@@ -45,22 +55,19 @@ export class ScrambleBeeComponent {
       const wordList = this.filterWordsByUniqueLetters(7);
       const randomIndex = Math.floor(Math.random() * wordList.length);
       this.currentWord = wordList[randomIndex];
-      let scrambled: string = this.scrambleWord(this.currentWord);
+      const unique = this.getUniqueLetters(this.currentWord);
+
+      let scrambled: string = this.scrambleWord(Array.from(unique).join(''));
       
       // Ensure the scrambled word is different from the original
       while (scrambled === this.currentWord) {
-        scrambled = this.scrambleWord(this.currentWord);
+        scrambled = this.scrambleWord(Array.from(unique).join(''));
       }
 
-      const unique = this.getUniqueLetters(scrambled);
       // get letters from the set
-      this.scrambledWord = Array.from(unique);
+      this.scrambledWord = scrambled.split('');
       console.log(`Word: ${this.currentWord}`);
-
-  }
-
-  public filterWordsWithNoS(): string[] {
-      return this.words.filter(word => !word.includes('s'));
+      this.getAllPossibleWords();
   }
 
   public getUniqueLetters(word: string): Set<string> {
@@ -157,26 +164,64 @@ export class ScrambleBeeComponent {
            [...uniqueLettersInCurrentWord].every(letter => uniqueLettersInWord.has(letter));
   }
 
-  getAllPossibleWords(): string[] {
+  getWordScore(word: string): number {
+    let wordScore = 0;
+    if (word.length === 4) {
+      wordScore += 1;
+    } else {
+      wordScore += word.length;
+    }
+    if (this.isPangram(word)) {
+      wordScore += 7; // Pangram bonus
+    }
+    return wordScore;   
+  }
+
+  getAllPossibleWords(): void {
     if (!this.currentWord) {
-      return [];
+      return;
     }
     const centerLetter = this.scrambledWord![3];
-    return this.words.filter(word => 
+    this.totalWords = this.words.filter(word => 
       word.includes(centerLetter) &&
       this.canFormWordFromLetters(word, this.currentWord!)
     ).sort();
+
+    for (const word of this.totalWords) {
+      this.maxScore = (this.maxScore || 0) + this.getWordScore(word);
+    }
   } 
 
   canFormWordFromLetters(word: string, letters: string): boolean {
     const letterArray = letters.split('');
     for (const char of word) {
-      const index = letterArray.indexOf(char);
-      if (index === -1) {
+      if (letterArray.indexOf(char) === -1) {
         return false; // Letter not found
       }
-      letterArray.splice(index, 1); // Remove the letter to account for duplicates
     }
     return true;
+  }
+
+  showAllWords(): void {
+    this.isDone = true;
+    console.log('isDone set to true');
+    
+    this.acceptedWords = [...this.totalWords];
+  }
+
+  scramble(): void {
+    if (!this.currentWord) {
+      return;
+    }
+    const centerLetter = this.scrambledWord![3];
+
+    // scramble all letters but the center letter
+    let letters = this.scrambledWord!.filter((_, index) => index !== 3);
+    for (let i = letters.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [letters[i], letters[j]] = [letters[j], letters[i]];
+    }
+    letters.splice(3, 0, centerLetter); // reinsert center letter at index 3
+    this.scrambledWord = letters;   
   }
 }
