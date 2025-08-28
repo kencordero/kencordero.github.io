@@ -5,26 +5,27 @@
     @for (letter of scrambledWord; track $index) {
         <span [class]="{'yellow': $index === 3}"  class="letter">{{ letter | uppercase }} </span>
     }
+    <button [disabled]="isDone"
+        (click)="scramble()">Scramble</button>
     <br /><br />
     <!-- input field and submit button -->
     <!-- when enter button is pressed in input field, button is clicked -->
     
     
-    <p [class]="{'red': !message.includes('Pangram') && !message.includes('Good')}">{{ message }}</p>   
+    <p [class]="{'red': !message.startsWith('Pangram') && !message.startsWith('Good')}">{{ message }}</p>   
      
-    <input mat-input (keydown.enter)="testWord()" [(ngModel)]="userInput" type="text" placeholder="Your answer here" />
-    <button (click)="testWord()" type="submit">Submit</button>
+    <input [disabled]="isDone" mat-input (keydown.enter)="testWord()" [(ngModel)]="userInput" type="text" placeholder="Your answer here" />
+    <button [disabled]="isDone"
+        (click)="showAllWords()">Show All</button>
     <!--Show score -->
-    <p>Score: {{ score }}</p>
+    <p>Max Score: {{ maxScore | number }}</p>
+    <p>Score: {{ score | number }}</p>
     <br />
 
     <!-- show list of accepted words in a bulleted list-->
-     
     <ul>
         @for (word of acceptedWords; track word) {
             <li [class]="{'bold': isPangram(word)}">{{ word }}</li>
         }
     </ul>
-    
-    
 }
