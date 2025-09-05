@@ -1,6 +1,7 @@
 import { DecimalPipe, UpperCasePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'ken-scramble-bee',
@@ -9,6 +10,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './scramble-bee.component.css'
 })
 export class ScrambleBeeComponent {
+  private _snackBar = inject(MatSnackBar);
+
   public words: string[] = [];
   public currentWord?: string = undefined;
   public scrambledWord?: string[] = undefined;
@@ -47,7 +50,6 @@ export class ScrambleBeeComponent {
     this.totalWords = [];
     this.maxScore = undefined;
     this.isDone = false;
-    console.log('isDone set to false');
   }
 
   public getRandomWord(): void {
@@ -97,34 +99,40 @@ export class ScrambleBeeComponent {
       return false;
     }
     if (word.length < 4) {
-      this.message = 'Too short';
+      this._snackBar.open('Too short', '',  { duration: 2000 });
+      //this.message = 'Too short';
       return false;
     }
     if (word.length > 19) {
-      this.message = 'Too long';
+      this._snackBar.open('Too long', '',  { duration: 2000 });
+      //this.message = 'Too long';
       return false;
     }
     if (this.acceptedWordSet.has(word)) {
-      this.message = 'Already found';
+      this._snackBar.open('Already found', '',  { duration: 2000 });
+      //this.message = 'Already found';
       return false;
     }
     //missing center letter
     const centerLetter = this.scrambledWord![3];
     if (!word.includes(centerLetter)) {
-      this.message = 'Missing center letter';
+      this._snackBar.open('Missing center letter', '',  { duration: 2000 });
+      //this.message = 'Missing center letter';
       return false;
     }
     // Check if the word can be formed from the letters of the current word
     const currentWordLetters = this.currentWord.split('');
     for (const letter of word) {
       if (currentWordLetters.indexOf(letter) === -1) {
-          this.message = "Bad letters";
+          this._snackBar.open('Bad letters', '',  { duration: 2000 });
+          //this.message = "Bad letters";
           return false; // Letter not found
       }
     }
     // Check if the word exists in the word list
     if (!this.words.includes(word)) {
-      this.message = "Not in word list";
+      this._snackBar.open('Not in word list', '',  { duration: 2000 });
+      //this.message = "Not in word list";
       return false;
     }
       
@@ -137,10 +145,12 @@ export class ScrambleBeeComponent {
     }
 
     if (this.isPangram(word)) {
-      this.message = "Pangram! +" + word.length;
+      this._snackBar.open('Pangram! +' + word.length, '',  { duration: 2000 });
+      //this.message = "Pangram! +" + word.length;
       wordScore += 7; // Pangram bonus
     } else {
-      this.message = "Good +" + wordScore;
+      this._snackBar.open('Good! +' + wordScore, '',  { duration: 2000 });
+      //this.message = "Good +" + wordScore;
     }
     
     this.score += wordScore;
