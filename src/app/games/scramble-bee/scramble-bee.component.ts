@@ -145,9 +145,9 @@ export class ScrambleBeeComponent {
     }
 
     if (this.isPangram(word)) {
-      this._snackBar.open('Pangram! +' + word.length, '',  { duration: 2000 });
+      wordScore += 7
+      this._snackBar.open('Pangram! +' + wordScore, '',  { duration: 2000 });
       //this.message = "Pangram! +" + word.length;
-      wordScore += 7; // Pangram bonus
     } else {
       this._snackBar.open('Good! +' + wordScore, '',  { duration: 2000 });
       //this.message = "Good +" + wordScore;
