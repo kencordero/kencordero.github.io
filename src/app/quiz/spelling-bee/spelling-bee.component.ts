@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import SpellingBeeService from '../../services/spelling-bee.service';
 import { fromEvent, map, Observable, tap } from 'rxjs';
+import { MatCard, MatCardHeader, MatCardAvatar, MatCardActions } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
 
 @Component({
     selector: 'ken-spelling-bee',
     templateUrl: './spelling-bee.component.html',
     styleUrls: ['./spelling-bee.component.css'],
-    standalone: false
+    imports: [MatCard, MatCardHeader, MatCardAvatar, FormsModule, MatCardActions, MatButton]
 })
 export class SpellingBeeComponent implements OnInit {
   public word?: string;

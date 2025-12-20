@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../models/question.model';
 import { CapitalQuizService } from '../../services/capital-quiz.service';
+import { MatButton } from '@angular/material/button';
+import { NgClass } from '@angular/common';
 
 const CHOICE_COUNT = 9;
 
@@ -8,7 +10,7 @@ const CHOICE_COUNT = 9;
     selector: 'ken-capitals',
     templateUrl: './capitals.component.html',
     styleUrls: ['./capitals.component.css'],
-    standalone: false
+    imports: [MatButton, NgClass]
 })
 export class CapitalsComponent implements OnInit {
   question: Question;

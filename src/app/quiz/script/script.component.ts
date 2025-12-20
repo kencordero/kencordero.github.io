@@ -1,12 +1,15 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Question } from '../models/question.model';
 import { ScriptService } from 'src/app/services/script.service';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { MatButton } from '@angular/material/button';
+import { NgClass } from '@angular/common';
 
 @Component({
     selector: 'ken-script',
     templateUrl: './script.component.html',
     styleUrl: './script.component.css',
-    standalone: false
+    imports: [MatProgressBar, MatButton, NgClass]
 })
 export class ScriptComponent implements OnInit, OnChanges {
   @Input() characterSet: any[] = []; 

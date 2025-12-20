@@ -4,8 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'ken-about',
     templateUrl: './about.component.html',
-    styleUrls: ['./about.component.css'],
-    standalone: false
+    styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
   user: any;

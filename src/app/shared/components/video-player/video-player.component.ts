@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { YouTubePlayer } from '@angular/youtube-player';
 
 let apiLoaded = false;
 
@@ -6,7 +7,7 @@ let apiLoaded = false;
     selector: 'video-player',
     templateUrl: './video-player.component.html',
     styleUrls: ['./video-player.component.css'],
-    standalone: false
+    imports: [YouTubePlayer]
 })
 export class VideoPlayerComponent implements OnInit {
   @Input() videoId: string = '';
