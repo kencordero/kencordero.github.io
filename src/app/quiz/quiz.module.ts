@@ -5,7 +5,7 @@ import { CapitalQuizService } from '../services/capital-quiz.service';
 import { ArithmeticComponent } from './arithmetic/arithmetic.component';
 import { ArithmeticService } from '../services/arithmetic.service';
 import { CapitalsComponent } from './capitals/capitals.component';
-import { SharedModule } from '../shared/shared.module';
+
 import { SpellingBeeComponent } from './spelling-bee/spelling-bee.component';
 import { FlagsComponent } from './flags/flags.component';
 import { FlagQuizService } from '../services/flag-quiz.service';
@@ -16,7 +16,8 @@ import { KanjiComponent } from './kanji/kanji.component';
 import { KatakanaComponent } from './katakana/katakana.component';
 
 @NgModule({
-  declarations: [
+    imports: [
+    QuizRoutingModule,
     ArithmeticComponent,
     CapitalsComponent,
     SpellingBeeComponent,
@@ -25,16 +26,12 @@ import { KatakanaComponent } from './katakana/katakana.component';
     DevanagariComponent,
     KanjiComponent,
     KatakanaComponent,
-    ScriptComponent,
-  ],
-  imports: [
-    QuizRoutingModule,
-    SharedModule
-  ],
-  providers: [
-    CapitalQuizService,
-    FlagQuizService,
-    ArithmeticService
-  ],
+    ScriptComponent
+],
+    providers: [
+        CapitalQuizService,
+        FlagQuizService,
+        ArithmeticService
+    ],
 })
 export class QuizModule { }

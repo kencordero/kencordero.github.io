@@ -3,8 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'ken-main',
     templateUrl: './main.component.html',
-    styleUrls: ['./main.component.css'],
-    standalone: false
+    styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
 

@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatButtonToggleGroup, MatButtonToggle } from '@angular/material/button-toggle';
+import { FormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
 
 @Component({
     selector: 'ken-arithmetic',
     templateUrl: './arithmetic.component.html',
     styleUrls: ['./arithmetic.component.css'],
-    standalone: false
+    imports: [MatButtonToggleGroup, FormsModule, MatButtonToggle, NgClass]
 })
 export class ArithmeticComponent implements OnInit {
   correctAnswer?: number;

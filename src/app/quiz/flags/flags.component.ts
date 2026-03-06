@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FlagQuizService } from '../../services/flag-quiz.service';
 import { FlagQuestion } from '../models/flag-question.model';
+import { MatButton } from '@angular/material/button';
+import { NgClass, LowerCasePipe } from '@angular/common';
 
 @Component({
     selector: 'ken-flags',
     templateUrl: './flags.component.html',
     styleUrls: ['./flags.component.css'],
-    standalone: false
+    imports: [MatButton, NgClass, LowerCasePipe]
 })
 export class FlagsComponent implements OnInit {
   isInverseQuestion = true;
