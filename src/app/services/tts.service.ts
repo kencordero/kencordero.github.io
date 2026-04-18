@@ -25,14 +25,14 @@ export class TtsService {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 0.8;
     if (!voiceName) {
-      switch (text) {
-        case "biryani":
+      switch (text.toUpperCase()) {
+        case "BIRYANI":
           voiceName = '"Google हिन्दी"';
           break;
-        case "Jicarilla":
-        case "frijoles":
-        case "telenovelas":
-        case "tostones":
+        case "JICARILLA":
+        case "FRIJOLES":
+        case "TELENOVELAS":
+        case "TOSTONES":
           voiceName = 'Google español';
           break;
         default:
