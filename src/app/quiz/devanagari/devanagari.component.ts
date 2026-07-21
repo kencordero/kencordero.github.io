@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { devanagari } from 'src/app/shared/data-sets/devanagari';
 import { ScriptComponent } from '../script/script.component';
 
@@ -6,6 +6,7 @@ import { ScriptComponent } from '../script/script.component';
     selector: 'ken-devanagari',
     templateUrl: './devanagari.component.html',
     styleUrl: './devanagari.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [ScriptComponent]
 })
 export class DevanagariComponent {

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import { YouTubePlayer } from '@angular/youtube-player';
 
 let apiLoaded = false;
@@ -7,6 +7,7 @@ let apiLoaded = false;
     selector: 'video-player',
     templateUrl: './video-player.component.html',
     styleUrls: ['./video-player.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [YouTubePlayer]
 })
 export class VideoPlayerComponent implements OnInit {

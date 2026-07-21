@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Question } from '../models/question.model';
 import { CapitalQuizService } from '../../services/capital-quiz.service';
 import { MatButton } from '@angular/material/button';
@@ -10,6 +10,7 @@ const CHOICE_COUNT = 9;
     selector: 'ken-capitals',
     templateUrl: './capitals.component.html',
     styleUrls: ['./capitals.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MatButton, NgClass]
 })
 export class CapitalsComponent implements OnInit {

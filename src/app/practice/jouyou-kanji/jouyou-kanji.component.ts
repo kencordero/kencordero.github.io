@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -12,6 +12,7 @@ import { shuffle } from 'src/app/shared/utils';
     selector: 'ken-jouyou-kanji',
     imports: [MatButtonToggleModule, FormsModule, KatakanaPipe, RomajiPipe, MatTooltipModule],
     templateUrl: './jouyou-kanji.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './jouyou-kanji.component.css'
 })
 export class JouyouKanjiComponent {
