@@ -1,5 +1,5 @@
 import { DecimalPipe, UpperCasePipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'ken-scramble-bee',
   imports: [DecimalPipe, FormsModule, UpperCasePipe],
   templateUrl: './scramble-bee.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './scramble-bee.component.css'
 })
 export class ScrambleBeeComponent {

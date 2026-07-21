@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { Question } from '../models/question.model';
 import { ScriptService } from 'src/app/services/script.service';
 import { MatProgressBar } from '@angular/material/progress-bar';
@@ -9,6 +9,7 @@ import { NgClass } from '@angular/common';
     selector: 'ken-script',
     templateUrl: './script.component.html',
     styleUrl: './script.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MatProgressBar, MatButton, NgClass]
 })
 export class ScriptComponent implements OnInit, OnChanges {

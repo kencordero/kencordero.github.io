@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import SpellingBeeService from '../../services/spelling-bee.service';
 import { fromEvent, map, Observable, tap } from 'rxjs';
 import { MatCard, MatCardHeader, MatCardAvatar, MatCardActions } from '@angular/material/card';
@@ -9,6 +9,7 @@ import { MatButton } from '@angular/material/button';
     selector: 'ken-spelling-bee',
     templateUrl: './spelling-bee.component.html',
     styleUrls: ['./spelling-bee.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MatCard, MatCardHeader, MatCardAvatar, FormsModule, MatCardActions, MatButton]
 })
 export class SpellingBeeComponent implements OnInit {

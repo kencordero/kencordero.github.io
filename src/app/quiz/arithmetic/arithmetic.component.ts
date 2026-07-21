@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonToggleGroup, MatButtonToggle } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
@@ -7,6 +7,7 @@ import { NgClass } from '@angular/common';
     selector: 'ken-arithmetic',
     templateUrl: './arithmetic.component.html',
     styleUrls: ['./arithmetic.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [MatButtonToggleGroup, FormsModule, MatButtonToggle, NgClass]
 })
 export class ArithmeticComponent implements OnInit {

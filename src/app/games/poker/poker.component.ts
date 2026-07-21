@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Card } from '../models/card.model';
 
 
@@ -6,6 +6,7 @@ import { Card } from '../models/card.model';
     selector: 'ken-poker',
     imports: [],
     templateUrl: './poker.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './poker.component.css'
 })
 export class PokerComponent {
