@@ -9,6 +9,11 @@ body {
 
 .active-link {
   background-color: blueviolet !important;
+}
+
+.active-link,
+.active-link a,
+.active-link button {
   color: white !important;
 }
 
