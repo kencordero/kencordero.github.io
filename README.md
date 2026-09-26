@@ -1,27 +1,24 @@
 # Site
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
+This is an Angular single-page application that brings together a collection of independent interactive components. It includes trivia quizzes, browser games, language-practice tools, and a music page featuring YouTube videos.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Flag trivia and a capitals quiz.
+- Additional quizzes for arithmetic, spelling, and writing systems including Hiragana, Katakana, Kanji, and Devanagari.
+- Browser games including Poker, Poker Solitaire, and Scramble Bee.
+- Joyo Kanji practice.
+- A music page that displays YouTube videos of my performances.
 
-## Code scaffolding
+## PokerComponent
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The PokerComponent provides a browser-based poker game interface.
 
-## Build
+### Current Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Displays a poker table layout.
+- Deals playing cards to the player.
+- Supports multiple poker hands.
+- Evaluates and displays hand results.
+- Includes controls for starting and resetting a game.
+- Uses responsive styling for desktop and mobile layouts.
